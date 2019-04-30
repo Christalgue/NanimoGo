@@ -17,17 +17,14 @@
     	
         <link rel="stylesheet" href="style.css">
     	
-        <title>Menu</title>
+    	<!-- jQuery UI for modals -->
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+	    <title>Menu</title>
     </head>
     
     <body class="m-3">
-	    <script>
-	    	// include header and footer
-			$(function(){
-			  $("#header").load("header.html"); 
-			  $("#footer").load("footer.html"); 
-			});
-		</script>
     
     	<div id="header"></div>
     	
@@ -49,6 +46,35 @@
 		</div>
 
     	<div id="footer"></div>
+
+
+	<script>
+	// include header and footer
+	$(function(){
+	  $("#header").load("header.html"); 
+	  
+	  $("#footer").load("footer.html", function() {
+		  $( "#footer a" ).click( function (link){
+			$( '<p>' ).dialog({
+			  resizable: false,
+			  height: "auto",
+			  width: 400,
+			  modal: true,
+			  buttons: {
+				"GOOOOO": function() {
+				  $( this ).dialog( "close" );
+				  document.location = link.currentTarget.href;
+				},
+				"NOGOOOOOOOO": function() {
+				  $( this ).dialog( "close" );
+				}
+			  }
+			});
+	    	return false;
+		  });
+		});
+	});
+		</script>
 
     </body>
 </html>
