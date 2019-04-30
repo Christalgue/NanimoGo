@@ -1,4 +1,4 @@
-footer {
+#footer {
    position: fixed;
    left: 0;
    bottom: 0;
@@ -9,7 +9,7 @@ footer {
    height: 50px;
 }
 
-header {
+#header {
    position: fixed;
    left: 0;
    top: 0;
@@ -20,7 +20,7 @@ header {
    height: 50px;
 }
 
-main {
+#main {
 	margin-bottom:50px;
 	margin-top:50px;
 }
