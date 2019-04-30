@@ -10,6 +10,10 @@ body {
   background-color: #80D3E3;
   box-shadow: 5px 10px 15px #74A7B0;
  }
+ .element-secondaire{
+   background-color: #DDFB8B;
+   box-shadow: 5px 10px 20px #B1C37F;
+ }
 
  .miniature {
    /*a potentiellement retravailler*/
@@ -33,6 +37,13 @@ body {
   font-size:4em;
 }
 .texte-normal{
+  font-size:3.5em;
+}
+.texte-centre{
+  text-align: center;
+}
+.texte-italique{
+  font-style: italic;
   font-size:3.5em;
 }
 .texte-telephone{
@@ -76,3 +87,15 @@ body {
   .element-important{
     border-radius: 10px 10px 10px 10px ;
   }
+  .element-secondaire{
+    border-radius: 10px 10px 10px 10px ;
+  }
+.no-margin{
+  margin: 0px 0px 0px 0px;
+}
+.petit-padding{
+  padding: 1em 1em 1em 1em;
+}
+.marge-haute{
+  margin-top: 2em;
+}
