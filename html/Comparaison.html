@@ -16,7 +16,9 @@
     	
         <link rel="stylesheet" href="style.css">
 
-        <title>Resultat</title>
+
+    	
+        <title>Question</title>
     </head>
     
     <body>
@@ -31,32 +33,36 @@
     	<div id="header"></div>
     	
 		<div id="main" class="container">
-			<div class="row justify-content-md-center">
-				<div class="text-center">
-					Félicitations !
-					</br>
-					Tu as trouvé :
-					</br>
-					<h3 class="d-block" id="espece">nom de l'espece</h3>
+		
+			<p class="text-center">
+					Image prise :
+			</p>
+			<div class="row justify-content-center">
+				<img src="photopandaroux.jpeg">
+			</div>
+			
+			<p class="text-center">
+					Image de référence :
+			</p>
+			<div class="row justify-content-center">
+				<img src="photopandaroux.jpeg">
+			</div>
+			
+			<div class="col justify-content-md-center">
+				<p class="text-center">
+					Question : Est-ce que l'animal que vous avez vu ressemble à celui de référence ?
+				</p>
+				<div class="row justify-content-center">
+					<a href="Resultat.html" class="btn btn-secondary btn-lg active mr-3 " role="button" aria-pressed="true">Oui</a>
+					<a href="Inconnue.html" class="btn btn-secondary btn-lg active ml-3" role="button" aria-pressed="true">Non</a>
 				</div>
-			</div>
-			<div class="row justify-content-md-center">
-				<img src="pandaroux.jpg">
-			</div>
-			<div class="row justify-content-md-center">
-				<div class="text-center">
-					<p id="taille">Taille : 1m12</p>
-					</br>
-					<p id="zone">Zone géographique : vallée du Rhône</p>
-					</br>
-					<p id="anectode">Le silure est méchant, comme Lisa !</p>
+				<div class="row justify-content-center mt-3">
+					<a href="Accueil.html" class="btn btn-secondary btn-lg active mr-3" role="button" aria-pressed="true">Abandonner</a>
 				</div>
 			</div>
 		</div>
 		
-
     	<div id="footer"></div>
-
-
+    	
     </body>
 </html>
