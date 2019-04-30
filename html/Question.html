@@ -13,6 +13,7 @@
         
         <!-- jQuery JS library -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    	<script src="services.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 
@@ -62,56 +63,7 @@
 		
     	<div id="footer"></div>
     	<script>
-			var chemin = new String( '' );
-			var question;
-			//var nom;
-			//var anecdote;
-			//var points;
 			
-			
-				
-			function getInformations() {
-				if (chemin.length === 0) {
-					firebase.database().ref("Question").on('value', function(snapshot) {
-						question = snapshot.val();
-						ecrireQuestion();
-					
-					});
-				} else {
-				
-					firebase.database().ref(chemin).on('value', function(snapshot) {
-					if (!snapshot.val().Question)
-					{
-					  	//anecdote = snapshot.val().Anecdote;
-						//nom  = snapshot.val().Nom;
-						//points = snapshot.val().Points;
-						//photo = snapshot.val().Image;
-						localStorage.setItem("chemin", chemin);
-						document.location.href="Resultat.html"
-						//ecrireInfos();
-						//console.log("bebete");
-					
-					} else {
-						question = snapshot.val().Question;
-						ecrireQuestion();
-					}
-					});
-				}
-			}		
-		function questionValidee (bouton) {
-			var valeur = bouton.value;
-			if (chemin.length === 0) {
-				chemin += valeur;
-			} else {
-			chemin += ('/' + valeur);
-			}
-			console.log(chemin);
-			getInformations();
-		}
-		
-		function ecrireQuestion() {
-			document.getElementById("question").innerHTML = question; 
-		}
 		
 		$( document ).ready(function() {
    			getInformations();

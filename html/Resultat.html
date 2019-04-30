@@ -13,6 +13,7 @@
         
         <!-- jQuery JS library -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    	<script src="services.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 
@@ -70,26 +71,10 @@
 
     	<div id="footer"></div>
     	<script>
-    	var anecdote;
-    	var nom;
-    	var points;
-    	var photo;
-    	function ecrireInfos() {
-    		document.getElementById("image").innerHTML = "<img src=\" " + photo + "\"/>"; 
-    		document.getElementById("points").innerHTML = points + " points"; 
-    		document.getElementById("espece").innerHTML = nom; 
-    		document.getElementById("anecdote").innerHTML = anecdote; 
-    	}
+    	
     	
     	$( document ).ready(function() {
-   			firebase.database().ref(localStorage.getItem('chemin')).on('value', function(snapshot) {
-					anecdote = snapshot.val().Anecdote;
-					nom  = snapshot.val().Nom;
-					points = snapshot.val().Points;
-				    photo = snapshot.val().Image;
-					ecrireInfos();
-
-					});
+   			resultatInit();
 				
 		});
 		</script>
