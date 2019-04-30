@@ -13,6 +13,21 @@
         
         <!-- jQuery JS library -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+			<script>
+			  // Initialize Firebase
+			  var config = {
+				apiKey: "AIzaSyAmLV6mp3KyUrcRyCJteiKPpa-hSqBtSX0",
+				authDomain: "nanimogodatabase.firebaseapp.com",
+				databaseURL: "https://nanimogodatabase.firebaseio.com",
+				projectId: "nanimogodatabase",
+				storageBucket: "nanimogodatabase.appspot.com",
+				messagingSenderId: "1033236935813"
+			  };
+			  firebase.initializeApp(config);
+		</script>
         <title>Question</title>
     </head>
     
@@ -44,6 +59,41 @@
 		</div>
 		
     	<div id="footer"></div>
+    	<script>
+			var chemin = new String( '' );
+			var question;
+			var nom;
+			var anecdote;
+			var points;
+			function getInformations() {
+				firebase.database().ref(chemin).on('value', function(snapshot) {
+				if (!snapshot.val().Question)
+				{
+				  	anecdote = snapshot.val().Anecdote;
+					nom  = snapshot.val().Nom;
+					points = snapshot.val().Points;
+					photo = snapshot.val().Image;
+					console.log("coucou");
+				
+				} else {
+					question = snapshot.val().Question;
+					console.log("coucou2");
+				}
+				});
+			}		
+		function questionValidee (bouton) {
+			var valeur = bouton.value();
+			if (chemin.length === 0) {
+				chemin += valeur;
+			} else {
+			chemin += ('/' + valeur);
+			}
+			getInformations();
+		}
+			
+		   	
+		
+	</script>
     	
     </body>
 </html>
