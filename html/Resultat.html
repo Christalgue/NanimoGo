@@ -13,7 +13,22 @@
         
         <!-- jQuery JS library -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    	
+    	<script src="services.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+			<script>
+			  // Initialize Firebase
+			  var config = {
+				apiKey: "AIzaSyAmLV6mp3KyUrcRyCJteiKPpa-hSqBtSX0",
+				authDomain: "nanimogodatabase.firebaseapp.com",
+				databaseURL: "https://nanimogodatabase.firebaseio.com",
+				projectId: "nanimogodatabase",
+				storageBucket: "nanimogodatabase.appspot.com",
+				messagingSenderId: "1033236935813"
+			  };
+			  firebase.initializeApp(config);
+		</script>
         <link rel="stylesheet" href="style.css">
 
         <title>Resultat</title>
@@ -37,25 +52,32 @@
 					</br>
 					Tu as trouvé :
 					</br>
-					<h3 class="d-block" id="espece">nom de l'espece</h3>
+					<h3 class="d-block" id="espece"></h3>
 				</div>
 			</div>
-			<div class="row justify-content-md-center">
-				<img src="pandaroux.jpg">
+			<div class="row justify-content-md-center" id="image">
+				
 			</div>
 			<div class="row justify-content-md-center">
 				<div class="text-center">
-					<p id="taille">Taille : 1m12</p>
 					</br>
-					<p id="zone">Zone géographique : vallée du Rhône</p>
+					<p id="points"></p>
 					</br>
-					<p id="anectode">Le silure est méchant, comme Lisa !</p>
+					<p id="anecdote"></p>
 				</div>
 			</div>
 		</div>
 		
 
     	<div id="footer"></div>
+    	<script>
+    	
+    	
+    	$( document ).ready(function() {
+   			resultatInit();
+				
+		});
+		</script>
 
 
     </body>
