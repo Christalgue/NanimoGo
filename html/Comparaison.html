@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        
+        <!-- Bootstrap CSS library -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <!-- Fontawesome icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        
+        <!-- jQuery JS library -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    	
+        <link rel="stylesheet" href="style.css">
+
+
+    	
+        <title>Question</title>
+    </head>
+    
+    <body>
+	    <script>
+	    	// include header and footer
+			$(function(){
+			  $("#header").load("header.html"); 
+			  $("#footer").load("footer.html"); 
+			});
+		</script>
+    
+    	<div id="header"></div>
+    	
+		<div id="main" class="container">
+		
+			<p class="text-center">
+					Image prise :
+			</p>
+			<div class="row justify-content-center">
+				<img src="photopandaroux.jpeg">
+			</div>
+			
+			<p class="text-center">
+					Image de référence :
+			</p>
+			<div class="row justify-content-center">
+				<img src="photopandaroux.jpeg">
+			</div>
+			
+			<div class="col justify-content-md-center">
+				<p class="text-center">
+					Question : Est-ce que l'animal que vous avez vu ressemble à celui de référence ?
+				</p>
+				<div class="row justify-content-center">
+					<a href="Resultat.html" class="btn btn-secondary btn-lg active mr-3 " role="button" aria-pressed="true">Oui</a>
+					<a href="Inconnue.html" class="btn btn-secondary btn-lg active ml-3" role="button" aria-pressed="true">Non</a>
+				</div>
+				<div class="row justify-content-center mt-3">
+					<a href="Accueil.html" class="btn btn-secondary btn-lg active mr-3" role="button" aria-pressed="true">Abandonner</a>
+				</div>
+			</div>
+		</div>
+		
+    	<div id="footer"></div>
+    	
+    </body>
+</html>
