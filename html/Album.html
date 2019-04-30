@@ -1,86 +1,119 @@
 <!DOCTYPE html>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<meta charset="utf-8" />
+        
+        <!-- Bootstrap CSS library -->
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="class.css">
+        <!-- Fontawesome icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        
+        <!-- jQuery JS library -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    	
+    	
+        <link rel="stylesheet" href="style.css">
+    	
+    	<!-- jQuery UI for modals -->
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        
+        <!--Specific style sheet -->
+        <link rel="stylesheet" type="text/css" href="class.css">
 
 
 
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Menu</title>
+        <title>Album</title>
     </head>
     
     <body>
-    
-    	<div class="header">
-    		<h1 class="text-center"> Nanimo GO </h1>
-    	</div>
+<!-- TODO : ajouter header et footer-->
     	
-		<div class="container test">
-            <h3 class = "page title"> Album </h3>
-            <h4>Félicitation, tu as trouvé 25 espèces</h4>
-            <div class="container ">
+		<div class="large-container">
+      <div class = "element-important">
+            <h2 class = "titre texte-telephone"> Album </h2>
+            <h4 class = "sous-titre texte-telephone"> <p> Félicitations ! </p>
+              <p id = "especes-trouvees">tu as trouvé 25 espèces</p>
+            </h4>
+      </div>
+            <div class="large-container">
                 <div class="row">
-                  <div class="col-md-3 conteneur-carre ">
-                      <img src = "pandaroux.jpg" class = "miniature thumbnail "/>
+                  <!--Potentiellement à creer avec js
+                  TODO : ajouter les liens vers la page de details-->
+                  <div class="col-md-3 conteneur-carre">
+                    <a href="Details.html">
+                      <img src = "pandaroux.jpg" class = "miniature"/>
+                    </a>
                   </div>
                   <div class="col-md-3 conteneur-carre ">
-                    <img src = "pandaroux.jpg" class = "miniature thumbnail" />
+                    <a href="Details.html">
+                      <img src = "pandaroux.jpg" class = "miniature"/>
+                    </a>
                   </div>
                   <div class="col-md-3 conteneur-carre thumbnail">
-                    <img src = "pandaroux.jpg" class = "miniature thumbnail"/>
+                      <a href="Details.html">
+                          <img src = "pandaroux.jpg" class = "miniature"/>
+                        </a>
                   </div>
                   <div class="col-md-3 conteneur-carre thumbnail">
-                    <img src = "pandaroux.jpg" class = "miniature"/>
+                      <a href="Details.html">
+                          <img src = "pandaroux.jpg" class = "miniature"/>
+                      </a>
                   </div>
                 </div>
                 <div class="row">
                         <div class="col-md-3 conteneur-carre ">
-                            <img src = "pandaroux.jpg" class = "miniature thumbnail "/>
+                            <a href="Details.html">
+                                <img src = "pandaroux.jpg" class = "miniature"/>
+                            </a>
                         </div>
                         <div class="col-md-3 conteneur-carre ">
-                          <img src = "pandaroux.jpg" class = "miniature thumbnail" />
+                            <a href="Details.html">
+                                <img src = "pandaroux.jpg" class = "miniature"/>
+                            </a>
                         </div>
                         <div class="col-md-3 conteneur-carre thumbnail">
-                          <img src = "pandaroux.jpg" class = "miniature thumbnail"/>
+                            <a href="Details.html">
+                                <img src = "pandaroux.jpg" class = "miniature"/>
+                            </a>
                         </div>
                         <div class="col-md-3 conteneur-carre thumbnail">
-                          <img src = "pandaroux.jpg" class = "miniature"/>
+                            <a href="Details.html">
+                                <img src = "pandaroux.jpg" class = "miniature"/>
+                            </a>
                         </div>
                       </div>
                       <div class="row">
                             <div class="col-md-3 conteneur-carre ">
-                                <img src = "pandaroux.jpg" class = "miniature thumbnail "/>
+                                <a href="Details.html">
+                                    <img src = "pandaroux.jpg" class = "miniature"/>
+                                </a>
                             </div>
                             <div class="col-md-3 conteneur-carre ">
-                              <img src = "pandaroux.jpg" class = "miniature thumbnail" />
+                                <a href="Details.html">
+                                    <img src = "pandaroux.jpg" class = "miniature"/>
+                                </a>
                             </div>
                             <div class="col-md-3 conteneur-carre thumbnail">
-                              <img src = "pandaroux.jpg" class = "miniature thumbnail"/>
+                                <a href="Details.html">
+                                    <img src = "pandaroux.jpg" class = "miniature"/>
+                                </a>
                             </div>
                             <div class="col-md-3 conteneur-carre thumbnail">
-                              <img src = "pandaroux.jpg" class = "miniature"/>
+                                <a href="Details.html">
+                                    <img src = "pandaroux.jpg" class = "miniature"/>
+                                </a>
                             </div>
                           </div>
               </div>
+              <div>
+                  <p class = "sous-titre element-important" id = "nb-especes"> Encore 42 espèces à trouver ! </p>
+              </div>
 		</div>
-		
-		<div class="footer">
-			<div class="row">
-				<div class="col-3 ">
-					<i class="fas fa-trophy fa-6x d-block w-100 text-center "></i>
-				</div>
-				<div class="col-6  align-content-center">
-					<a href="Question.html"> <i class="fas fa-camera fa-6x d-block w-100 text-center"></i> </a>
-				</div>
-				<div class="col-3 ">
-					<i class="fas fa-book-open fa-6x d-block w-100 text-center"></i>
-				</div>
-			</div>
-		</div>
+
     </body>
 </html>
