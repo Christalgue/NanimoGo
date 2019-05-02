@@ -2,7 +2,7 @@ var anecdote;
 var nom;
 var points;
 var photo;
-var chemin = new String( '' );
+var chemin = new String( 'DecisionTree' );
 var question;
 function ecrireInfos() {
     document.getElementById("image").innerHTML = "<img src=\" " + photo + "\"/>"; 
@@ -21,42 +21,45 @@ function resultatInit() {
 	});
 }
 
-	function getInformations() {
-		if (chemin.length === 0) {
-			firebase.database().ref("Question").on('value', function(snapshot) {
-			question = snapshot.val();
-			ecrireQuestion();
+function getInformations() {
+	if (chemin === "DecisionTree") {
+		firebase.database().ref("Question").on('value', function(snapshot) {
+		question = snapshot.val();
+		ecrireQuestion();
 					
-			});
-		} else {
+		});
+	} else {
 				
-			firebase.database().ref(chemin).on('value', function(snapshot) {
-				if (!snapshot.val().Question)
-				{
-						
-					localStorage.setItem("chemin", chemin);
-					document.location.href="Resultat.html"
-							
-				} else {
-					question = snapshot.val().Question;
-					ecrireQuestion();
-				}
-			});
-		}
-	}		
-	function questionValidee (bouton) {
-		var valeur = bouton.value;
-		if (chemin.length === 0) {
-			chemin += valeur;
-		} else {
-			chemin += ('/' + valeur);
-		}
-		console.log(chemin);
-		getInformations();
+		firebase.database().ref(chemin).on('value', function(snapshot) {
+			if (!snapshot.val().Question)
+			{	
+				localStorage.setItem("chemin", chemin);
+				//document.location.href="Resultat.html"	
+				document.location.href = "Comparaison.html";		
+			} else {
+				question = snapshot.val().Question;
+				ecrireQuestion();
+			}
+		});
 	}
+}		
+function questionValidee (bouton) {
+	var valeur = bouton.value;
+	chemin += ('/' + valeur);
+	getInformations();
+}
 		
-	function ecrireQuestion() {
-		document.getElementById("question").innerHTML = question; 
-	}
+function ecrireQuestion() {
+	document.getElementById("question").innerHTML = question; 
+}
+
+function afficherImageRef() {
+
+		firebase.database().ref(localStorage.getItem('chemin')).on('value', function(snapshot) {
+			document.getElementById("imageRef").innerHTML = "<img src = \" " +snapshot.val().Image + "\"/> "; 
+					
+		});
+	
+}
 
 
