@@ -33,9 +33,12 @@ function getInformations() {
 		firebase.database().ref(chemin).on('value', function(snapshot) {
 			if (!snapshot.val().Question)
 			{	
-				
-				localStorage.setItem("id", snapshot.val().ID);
-				document.location.href = "Comparaison.html";		
+				if (snapshot.val().ID === 0) {
+					document.location.href = "Inconnue.html";
+				} else {	
+					localStorage.setItem("id", snapshot.val().ID);
+					document.location.href = "Comparaison.html";	
+				}	
 			} else {
 				question = snapshot.val().Question;
 				ecrireQuestion();
