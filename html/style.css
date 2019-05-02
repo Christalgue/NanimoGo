@@ -1,28 +1,31 @@
 #footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: navy;
-   color: white;
-   text-align: center;
-   height:50px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: navy;
+	color: white;
+	text-align: center;
+	height:50px;
+	z-index: 1;
 }
 
 #header {
-   position: fixed;
-   left: 0;
-   top: 0;
-   width: 100%;
-   background-color: indigo;
-   color: white;
-   text-align: center;
-   height: 50px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: indigo;
+	color: white;
+	text-align: center;
+	height: 50px;
+	z-index: 1;
 }
 
 #main {
 	margin-bottom:50px;
 	margin-top:50px;
+	z-index: 1;
 }
 
 .rounded-circle {
