@@ -2,7 +2,7 @@ var anecdote;
 var nom;
 var points;
 var photo;
-var chemin = new String( '' );
+var chemin = new String( 'DecisionTree' );
 var question;
 function ecrireInfos() {
     document.getElementById("image").innerHTML = "<img src=\" " + photo + "\"/>"; 
@@ -22,7 +22,7 @@ function resultatInit() {
 }
 
 function getInformations() {
-	if (chemin.length === 0) {
+	if (chemin === "DecisionTree") {
 		firebase.database().ref("Question").on('value', function(snapshot) {
 		question = snapshot.val();
 		ecrireQuestion();
@@ -45,11 +45,7 @@ function getInformations() {
 }		
 function questionValidee (bouton) {
 	var valeur = bouton.value;
-	if (chemin.length === 0) {
-		chemin += valeur;
-	} else {
-		chemin += ('/' + valeur);
-	}
+	chemin += ('/' + valeur);
 	getInformations();
 }
 		
