@@ -41,6 +41,7 @@
 
     	
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="class.css">
         <title>Question</title>
     </head>
     
@@ -49,15 +50,15 @@
     	
 		<div id="main" class="container">
 			<div class="row justify-content-center">
-				<img id="photoPrise" src="photopandaroux.jpeg">
+				<img id="photoPrise" class="image-centree" src="photopandaroux.jpeg">
 			</div>
 			
 			<div class="col justify-content-center"  id ="divQuestion">
 				<p id="question" class="text-center">
 				</p>
 				<div class="row justify-content-center mb-3">
-					<button id="reponseOui" onclick="questionValidee(this)" value="1" class="btn btn-secondary btn-lg active mr-3" role="button" aria-pressed="true">Oui</button>
-					<button id="reponseNon" onclick="questionValidee(this)" value="0" class="btn btn-secondary btn-lg active ml-3" role="button" aria-pressed="true">Non</button>
+					<button id="reponseOui" onclick="questionValidee(this)" value="1" class="texte-telephone btn btn-secondary btn-lg active mr-3 button-yes-no-width" role="button" aria-pressed="true">Oui</button>
+					<button id="reponseNon" onclick="questionValidee(this)" value="0" class="texte-telephone btn btn-secondary btn-lg active ml-3 button-yes-no-width" role="button" aria-pressed="true">Non</button>
 				</div>
 			</div>
 		</div>

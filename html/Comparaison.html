@@ -30,6 +30,7 @@
 			  firebase.initializeApp(config);
 		</script>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="class.css">
 
     	<!-- jQuery UI for modals -->
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -50,26 +51,26 @@
     	
 		<div id="main" class="container">
 		
-			<p class="text-center">
+			<p class="text-center texte-telephone">
 					Image prise :
 			</p>
 			<div class="row justify-content-center">
-				<img src="photopandaroux.jpeg">
+				<img src="photopandaroux.jpeg" class="image-centree">
 			</div>
 			
-			<p class="text-center">
+			<p class="text-center texte-telephone">
 					Image de référence :
 			</p>
-			<div class="row justify-content-center" id="imageRef">
+			<div class="row justify-content-center" class="image-centree" id="imageRef">
 			</div>
 			
 			<div class="col justify-content-md-center">
-				<p class="text-center">
+				<p class="text-center texte-telephone">
 					Question : Est-ce que l'animal que vous avez vu ressemble à celui de référence ?
 				</p>
 				<div class="row justify-content-center">
-					<a href="Resultat.html" class="btn btn-secondary btn-lg active mr-3 " role="button" aria-pressed="true">Oui</a>
-					<a href="Inconnue.html" class="btn btn-secondary btn-lg active ml-3" role="button" aria-pressed="true">Non</a>
+					<a href="Resultat.html" class="texte-telephone btn btn-secondary btn-lg active mr-3 button-yes-no-width" role="button" aria-pressed="true">Oui</a>
+					<a href="Inconnue.html" class="texte-telephone btn btn-secondary btn-lg active ml-3 button-yes-no-width" role="button" aria-pressed="true">Non</a>
 				</div>
 			</div>
 		</div>
