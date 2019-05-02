@@ -21,7 +21,7 @@
 }
 
 #main {
-	margin-bottom:50px;
+	margin-bottom:88px;
 	margin-top:50px;
 }
 
@@ -34,4 +34,8 @@
 .camera {
 	position: relative;
 	bottom: 30px;
+}
+
+.button-yes-no-width {
+	width: 68px;
 }
