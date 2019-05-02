@@ -12,7 +12,7 @@ function ecrireInfos() {
    }
 
 function resultatInit() {
-	firebase.database().ref(localStorage.getItem('chemin')).on('value', function(snapshot) {
+	firebase.database().ref("ListeAnimaux/"+localStorage.getItem("id")).on('value', function(snapshot) {
 	anecdote = snapshot.val().Anecdote;
 	nom  = snapshot.val().Nom;
 	points = snapshot.val().Points;
@@ -33,8 +33,8 @@ function getInformations() {
 		firebase.database().ref(chemin).on('value', function(snapshot) {
 			if (!snapshot.val().Question)
 			{	
-				localStorage.setItem("chemin", chemin);
-				//document.location.href="Resultat.html"	
+				
+				localStorage.setItem("id", snapshot.val().ID);
 				document.location.href = "Comparaison.html";		
 			} else {
 				question = snapshot.val().Question;
@@ -55,7 +55,7 @@ function ecrireQuestion() {
 
 function afficherImageRef() {
 
-		firebase.database().ref(localStorage.getItem('chemin')).on('value', function(snapshot) {
+		firebase.database().ref("ListeAnimaux/"+localStorage.getItem("id")).on('value', function(snapshot) {
 			document.getElementById("imageRef").innerHTML = "<img src = \" " +snapshot.val().Image + "\"/> "; 
 					
 		});
