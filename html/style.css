@@ -15,7 +15,7 @@
 	left: 0;
 	top: 0;
 	width: 100%;
-	background-color: indigo;
+	background-color: #8AF185;
 	color: white;
 	text-align: center;
 	height: 50px;
@@ -24,7 +24,7 @@
 
 #main {
 	margin-bottom:88px;
-	margin-top:50px;
+	margin-top:65px;
 	z-index: 1;
 }
 

@@ -5,7 +5,7 @@ var photo;
 var chemin = new String( 'DecisionTree' );
 var question;
 function ecrireInfos() {
-    document.getElementById("image").innerHTML = "<img src=\" " + photo + "\"/>"; 
+    document.getElementById("image").innerHTML = "<img class=\"image-centree\" src=\" " + photo + "\"/>"; 
     document.getElementById("points").innerHTML = points + " points"; 
     document.getElementById("espece").innerHTML = nom; 
     document.getElementById("anecdote").innerHTML = anecdote; 
@@ -59,7 +59,7 @@ function ecrireQuestion() {
 function afficherImageRef() {
 
 		firebase.database().ref("ListeAnimaux/"+localStorage.getItem("id")).on('value', function(snapshot) {
-			document.getElementById("imageRef").innerHTML = "<img src = \" " +snapshot.val().Image + "\"/> "; 
+			document.getElementById("imageRef").innerHTML = "<img class=\"image-centree\" src = \" " +snapshot.val().Image + "\"/> "; 
 					
 		});
 	
