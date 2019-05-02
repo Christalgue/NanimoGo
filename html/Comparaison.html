@@ -13,7 +13,22 @@
         
         <!-- jQuery JS library -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    	
+    	<script src="services.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+			<script>
+			  // Initialize Firebase
+			  var config = {
+				apiKey: "AIzaSyAmLV6mp3KyUrcRyCJteiKPpa-hSqBtSX0",
+				authDomain: "nanimogodatabase.firebaseapp.com",
+				databaseURL: "https://nanimogodatabase.firebaseio.com",
+				projectId: "nanimogodatabase",
+				storageBucket: "nanimogodatabase.appspot.com",
+				messagingSenderId: "1033236935813"
+			  };
+			  firebase.initializeApp(config);
+		</script>
         <link rel="stylesheet" href="style.css">
 
 
@@ -44,8 +59,7 @@
 			<p class="text-center">
 					Image de référence :
 			</p>
-			<div class="row justify-content-center">
-				<img src="photopandaroux.jpeg">
+			<div class="row justify-content-center" id="imageRef">
 			</div>
 			
 			<div class="col justify-content-md-center">
@@ -60,6 +74,10 @@
 		</div>
 		
     	<div id="footer"></div>
-    	
+    	<script>
+    		$( document ).ready(function() {
+    			afficherImageRef();
+			});
+		</script>
     </body>
 </html>
