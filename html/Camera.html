@@ -7,9 +7,12 @@
 
     <!-- Name of your awesome camera app -->
     <title>Camera App</title>
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- Link to your main style sheet-->
     <link rel="stylesheet" href="styleCamera.css">
+    <link rel="stylesheet" href="class.css">
 </head>
 
 <body>
@@ -23,11 +26,17 @@
         <!-- Camera view -->
         <video id="camera--view" autoplay playsinline></video>
 
-        <!-- Camera output -->
-        <img src="//:0" alt="" id="camera--output">
+        <!-- Camera output 
+        <img src="//:0" alt="" id="camera--output">-->
+        
+        <div class="col-2 icone-gauche">
+			<a href="Accueil.html"> <i class="fas fa-arrow-left fa-2x icone"></i> </a>
+		</div>
+		
+		<a href="AffichagePhoto.html"> <i id="camera--trigger" class="camera fas fa-camera fa-2x couleur-blanc bordure-cercle couleur-secondaire"></i> </a>
 
-        <!-- Camera trigger -->
-        <button id="camera--trigger">Take a picture</button>
+        <!-- Camera trigger 
+        <button id="camera--trigger">Take a picture</button>-->
 
     </main>
 
