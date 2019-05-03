@@ -27,6 +27,22 @@
 
 		<!-- Header/Footer inclusion -->
 		<script src="inclusion.js"></script>
+		<script src="services.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+			<script>
+			  // Initialize Firebase
+			  var config = {
+				apiKey: "AIzaSyAmLV6mp3KyUrcRyCJteiKPpa-hSqBtSX0",
+				authDomain: "nanimogodatabase.firebaseapp.com",
+				databaseURL: "https://nanimogodatabase.firebaseio.com",
+				projectId: "nanimogodatabase",
+				storageBucket: "nanimogodatabase.appspot.com",
+				messagingSenderId: "1033236935813"
+			  };
+			  firebase.initializeApp(config);
+		</script>
 	    <title>Menu</title>
 
 	    <title>Score</title>
@@ -41,9 +57,9 @@
                           <p class = "titre texte-telephone"> Score </p>
                     </div>
                     <div>
-                        <p id= "rang" class = "texte-normal">Rang : Petit Pédestre</p>
+                        <p id= "rang" class = "texte-normal">Rang : <span id="rang"></span></p>
                         <!--TODO : Rajouter l'icone de rang-->
-                        <p id = "score" class = "texte-normal texte-centre"> 2 points </p>
+                        <p id = "score" class = "texte-normal texte-centre"> <span id = "points"></span> points </p>
                     </div>
                     <div class = "element-secondaire petit-padding">
                         <p class = "texte-normal no-margin"> Ta dernière découverte : </p>
@@ -57,6 +73,12 @@
                     </div>
                     
 		<div id="footer"></div>
+		<script>
+    		$( document ).ready(function() {
+    			ecrireRang();
+    			ecrireScore();
+			});
+		</script>
 
     </body>
 </html>
