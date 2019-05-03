@@ -119,6 +119,7 @@ body {
   border: 3px solid white;
   border-radius: 50%;
   padding: 17px;
+  shadow: 
 }
 
 img {
@@ -128,4 +129,16 @@ img {
 
 .banniere {
   max-height:50px;
+}
+
+.icone-gauche {
+  padding-left: 30px;
+  padding-right: 0px;
+  padding-bottom: 18px;
+}
+
+.icone-droite {
+  padding-left: 0px;
+  padding-right: 30px;
+  padding-bottom: 18px;
 }
