@@ -1,29 +1,117 @@
-#footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
-	height:50px;
-	z-index: 1;
+
+/*Conteneurs*/
+.conteneur-principal{
+    background-color: #F2FCFD;
+    margin-right : 0.5em;
+    margin-left : 0.5em;
+    margin-top : 0.5em;
 }
 
-#header {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	background-color: #8AF185;
-	color: white;
-	text-align: center;
-	height: 70px;
-	z-index: 1;
+.conteneur-carre {
+	padding-left: 1px;
+	padding-right:1px;
 }
 
-#main {
-	margin-bottom:88px;
-	margin-top:75px;
-	z-index: 1;
+
+/*Elements*/
+.element-important{
+	background-color: #80D3E3;
+	box-shadow: 5px 10px 15px #74A7B0;
+}
+.element-secondaire{
+	background-color: #DDFB8B;
+	box-shadow: 5px 10px 20px #B1C37F;
+}
+
+/*Images*/
+img {
+	max-height: 80%;
+	max-width: 80%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.image-centree{
+	border-style: groove;
+	border-width: thick;
+	border-radius : 10px 10px 10px 10px ;
+	width: 100%;
+}
+
+.miniature {
+	border-style: groove;
+	border-width: thick;
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: 5%;
+}
+
+/*Textes*/
+.titre{
+	text-decoration: underline;
+	text-align:center;
+	font-weight: bold;
+	font-size:1.6em;
+}
+.sous-titre{
+	text-align:center;
+	font-size:1.2em;
+}
+.texte-normal{
+	font-size:0.8em;
+}
+.texte-centre{
+	text-align: center;
+}
+.texte-italique{
+	font-style: italic;
+    font-size:1em;
+}
+.texte-telephone{
+	font-family: 'Roboto', sans-serif;
+}
+/*Borders*/
+.element-important{
+	border-radius: 10px 10px 10px 10px ;
+}
+.element-secondaire{
+	border-radius: 10px 10px 10px 10px ;
+}
+
+.bordure-cercle{
+	border: 3px solid white;
+	border-radius: 50%;
+    padding: 17px;
+}
+
+/*Marging and padding*/
+.no-margin{
+	margin: 0px 0px 0px 0px;
+}
+.petit-padding{
+	padding: 1em 1em 1em 1em;
+}
+.marge-haute{
+	margin-top: 2em;
+}
+
+/*Baniere*/
+.banniere {
+	max-height:50px;
+}
+
+/*Icones*/
+.icone-gauche {
+  padding-left: 30px;
+  padding-right: 0px;
+  padding-bottom: 18px;
+}
+
+.icone-droite {
+  padding-left: 0px;
+  padding-right: 30px;
+  padding-bottom: 18px;
 }
 
 .rounded-circle {
@@ -37,6 +125,38 @@
 	bottom: 30px;
 }
 
+/*Footer*/
+#footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	height:50px;
+	z-index: 1;
+}
+
+/*Header*/
+#header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: #8AF185;
+	color: white;
+	text-align: center;
+	height: 70px;
+	z-index: 1;
+}
+
+/*Reste de la page*/
+#main {
+	margin-bottom:88px;
+	margin-top:75px;
+	z-index: 1;
+}
+
+/*Boutons*/
 .button-yes-no-width {
 	width: 68px;
 }
