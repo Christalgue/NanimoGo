@@ -8,7 +8,7 @@
     /*Fonds*/
 
 body {
-  background-color: #f1fbd7;
+  background-color: #f9ffea;
 }
 
 .couleur-primaire{
@@ -37,15 +37,26 @@ body {
 }
     /*Conteneurs*/
 
+.conteneur-principal{
+    background-color: #F2FCFD;
+	box-shadow: 1px 5px 5px #74A7B0;
+	border-style: solid;
+	border-width: 0.2px 0.5px 0.5px 0.2px;
+	border-color : #74A7B0;
+}
+
+.texte-conteneur-principal{	
+	color : #457178;
+}
 
     /*Images*/    
 .image-centree{
-	border-color: #DDFB8B;
+	border-color: #f1fbd7;
 	box-shadow: 1px 1px 2px #B1C37F;
 }
 
 .miniature{
-	border-color: #DDFB8B;
+	border-color: #f1fbd7;
 	box-shadow: 1px 1px 2px #B1C37F;
 }
 
@@ -53,6 +64,23 @@ body {
 .bordure-cercle{  
     box-shadow: 1px 5px 5px #4e964b;
 }
+
+/*Header*/
+#header{		
+	background-color: #8AF185;
+	box-shadow: 1px 5px 5px #4e964b;
+}
+
+/*Elements*/
+.element-important{
+	background-color: #80D3E3;
+	box-shadow: 5px 10px 15px #74A7B0;
+}
+.element-secondaire{
+	background-color: #DDFB8B;
+	box-shadow: 5px 10px 20px #B1C37F;
+}
+
 /*Fin couleurs*/
 
 
