@@ -8,7 +8,7 @@
     /*Fonds*/
 
 body {
-  background-color: #f9ffea;
+  background-color: #fcfed7;/*#f9ffea;*/
 }
 
 .couleur-primaire{
@@ -20,7 +20,7 @@ body {
 }
 
 .couleur-terciaire{
-	background-color: #DDFB8B;
+	background-color: #f7fc8b;
 }
 
 .camera{
@@ -45,8 +45,13 @@ body {
 	border-color : #74A7B0;
 }
 
+	/*Textes*/
 .texte-conteneur-principal{	
 	color : #457178;
+}
+
+.texte-boutton{
+	color: #F2FCFD;
 }
 
     /*Images*/    
