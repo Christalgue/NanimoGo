@@ -30,7 +30,12 @@ body {
 .couleur-blanc{
 	color: white;
 }
-
+.camera{
+  background-color: #4e964b;
+}
+.icone{
+  color: #4e964b;
+}
 .miniature {
 	/*a potentiellement retravailler*/
 	border-color: #DDFB8B;
@@ -107,7 +112,8 @@ font-size:1em;
 .bordure-cercle{
 	border: 3px solid white;
 	border-radius: 50%;
-	padding: 17px;
+  padding: 17px;
+  box-shadow: 1px 5px 5px #4e964b;
 }
 
 img {
