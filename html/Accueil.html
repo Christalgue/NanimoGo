@@ -13,7 +13,22 @@
         
         <!-- jQuery JS library -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    	
+    	<script src="services.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+			<script>
+			  // Initialize Firebase
+			  var config = {
+				apiKey: "AIzaSyAmLV6mp3KyUrcRyCJteiKPpa-hSqBtSX0",
+				authDomain: "nanimogodatabase.firebaseapp.com",
+				databaseURL: "https://nanimogodatabase.firebaseio.com",
+				projectId: "nanimogodatabase",
+				storageBucket: "nanimogodatabase.appspot.com",
+				messagingSenderId: "1033236935813"
+			  };
+			  firebase.initializeApp(config);
+		</script>
     	
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="class.css">
@@ -27,23 +42,27 @@
     <body>
     
     	<div id="header"></div>
-    	<div id="main">
-				<div>
-					<p id="nomUtilisateur" class="text-center texte-telephone sous-titre">
-						Bonjour à toi, Petit Pédestre !
-					</p>
-				</div>
-				<div>
-					<img id="imageAnimalProche" class="image-centree" src="pandaroux.jpg">
-				</div>
-				<div>
-					<p class="text-center texte-telephone mt-3 texte-normal">
-						Cette espèce a été trouvée non loin de toi !
-					</p>
-				</div>
+    	
+		<div id="main" class="container">
+			<div class="row justify-content-center">
+				<p id="nomUtilisateur" class="texte-centre texte-telephone w-100 sous-titre">
+					Bonjour à toi, <span id = "rang"></span> !
+				</p>
+			</div>
+			<div class="row justify-content-center">
+				<img id="imageAnimalProche" class="image-centree" src="pandaroux.jpg">
+				<p class="texte-centre texte-telephone texte-normal mt-3">
+					Cette espèce a été trouvée non loin de toi !
+				</p>
+			</div>
 		</div>
 
-		<div id="footer"></div>
-	
+    	<div id="footer"></div>
+		<script>
+    		$( document ).ready(function() {
+    			ecrireRang();
+			});
+		</script>
+
     </body>
 </html>

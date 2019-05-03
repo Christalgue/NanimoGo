@@ -14,6 +14,8 @@
         <!-- jQuery JS library -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     	
+    	<script src="https://smtpjs.com/v3/smtp.js"></script>
+    	
     	
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="class.css">
@@ -21,9 +23,8 @@
 
 		<!-- Header/Footer inclusion -->
 		<script src="inclusion.js"></script>
-	    <title>Menu</title>
 
-        <title>Question</title>
+        <title>Inconnue</title>
     </head>
     
     <body>
@@ -48,6 +49,22 @@
 		</div>
 		
     	<div id="footer"></div>
+    	<script>
+    	$( document ).ready(function() {
+
+			Email.send({
+				Host : "smtp.insa-lyon.fr",
+				Username : "userInsa",
+				Password : "mdpInsa",
+				To : "nanimogo.help@gmail.com",
+				From : "noreply.nanimogo@gmail.com",
+				Subject : "Nouvelle espèce découverte",
+				Body : "Une nouvelle espèce a été découverte. Chemin : " + localStorage.getItem("chemin"),
+			}).then(
+			  message => alert(message)
+			);
+		 });
+		 </script>
     	
     </body>
 </html>
