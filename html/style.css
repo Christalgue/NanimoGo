@@ -24,6 +24,9 @@
 	height: 100%;
 	width: 100%;
 	z-index: 1;
+	margin-bottom: 3.5em;
+	margin-top: 4.5em;
+	/*padding-top: 4.5em;*/
 }
 
 .rounded-circle {
