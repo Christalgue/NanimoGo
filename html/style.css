@@ -3,8 +3,6 @@
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	background-color: navy;
-	color: white;
 	text-align: center;
 	height:50px;
 	z-index: 1;
@@ -18,13 +16,13 @@
 	background-color: #8AF185;
 	color: white;
 	text-align: center;
-	height: 60px;
+	height: 70px;
 	z-index: 1;
 }
 
 #main {
 	margin-bottom:88px;
-	margin-top:65px;
+	margin-top:75px;
 	z-index: 1;
 }
 
