@@ -1,6 +1,7 @@
 /*Couleurs : varie selon la charte graphique (cf drive)*/
 
 /*TODO : couleur du footer/header : #8AF185  shadows : #7DBB7A*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
   background-color: #F2FCFD;
@@ -46,6 +47,7 @@ body {
 	border-color: #DDFB8B;
 	box-shadow: 1px 1px 2px #B1C37F;
 }
+
 /*textes*/
 .titre{
 	text-decoration: underline;
@@ -55,10 +57,10 @@ body {
 }
 .sous-titre{
 	text-align:center;
-	font-size:1.2em;
+	font-size:1.4em;
 }
 .texte-normal{
-	font-size:0.8em;
+	font-size:1.2em;
 }
 .texte-centre{
 	text-align: center;
@@ -68,7 +70,8 @@ body {
 font-size:1em;
 }
 .texte-telephone{
-	font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
+  font-weight: 100;
 }
 
 /*Conteneurs*/

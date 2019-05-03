@@ -4,7 +4,7 @@
 	bottom: 0;
 	width: 100%;
 	text-align: center;
-	height:50px;
+	height:3.5em;
 	z-index: 1;
 }
 
@@ -14,15 +14,15 @@
 	top: 0;
 	width: 100%;
 	background-color: #8AF185;
-	color: white;
+	color: rgb(146, 132, 132);
 	text-align: center;
-	height: 70px;
+	height: 4.5em;
 	z-index: 1;
 }
 
 #main {
-	margin-bottom:88px;
-	margin-top:75px;
+	height: 100%;
+	width: 100%;
 	z-index: 1;
 }
 
@@ -40,4 +40,3 @@
 .button-yes-no-width {
 	width: 68px;
 }
-
