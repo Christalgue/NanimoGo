@@ -4,11 +4,35 @@ var points;
 var photo;
 var chemin = new String( 'DecisionTree' );
 var question;
+
+function miseAJourPointsRang() {
+			firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
+				var Score = snapshot.val().Score + points;
+				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Score").set(Score);
+				firebase.database().ref("ListeRangs").once('value', function(snapshot) {
+					var trouve = 0;
+					var i =0;
+					while (!trouve && i<snapshot.val().length-1)  {
+						console.log("i : " + i);
+						if ( snapshot.val()[i].Score <= Score && Score < snapshot.val()[i+1].Score ) {
+							trouve = 1;
+							firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Rang").set(snapshot.val()[i].Nom);
+						}
+						i++;
+					}
+					if (!trouve &&  i===snapshot.val().length-1 && snapshot.val()[i].Score <= Score) {
+						firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Rang").set(snapshot.val()[i].Nom);
+					}
+				})
+			})
+}
+
 function ecrireInfos() {
     document.getElementById("image").innerHTML = "<img class=\"image-centree\" src=\" " + photo + "\"/>"; 
     document.getElementById("points").innerHTML = points + " points"; 
     document.getElementById("espece").innerHTML = nom; 
     document.getElementById("anecdote").innerHTML = anecdote; 
+    miseAJourPointsRang();
    }
 
 function resultatInit() {
@@ -35,6 +59,9 @@ function getInformations() {
 			{	
 				if (snapshot.val().ID === 0) {
 					document.location.href = "Inconnue.html";
+					sendMail();
+					//localStorage.setItem("chemin", chemin);
+					
 				} else {	
 					localStorage.setItem("id", snapshot.val().ID);
 					document.location.href = "Comparaison.html";	
@@ -63,6 +90,30 @@ function afficherImageRef() {
 					
 		});
 	
+}
+
+function ecrireRang() {
+	localStorage.setItem("mail", "mail@example_dot_com"); // a deplacer
+	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail") + "/Rang").on('value', function(snapshot) {
+		document.getElementById("rang").append(snapshot.val());
+	})
+	
+}
+function ecrireScore() {
+	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail") + "/Score").on('value', function(snapshot) {
+		document.getElementById("points").append(snapshot.val());
+	})
+	
+}
+
+function sendMail() {
+   /* var link = "mailto:lafanofdestiny@gmail.com"
+             + "&subject=" + escape("This is my subject")
+             + "&body=" + escape("chemin :"  + chemin)
+    ;
+
+    window.location.href = link;*/
+    // key api : ab296ec761eb53d09ddf0d7dc79b6f4c-us20
 }
 
 
