@@ -8,7 +8,7 @@
     /*Fonds*/
 
 body {
-  background-color: #fcfed7;/*#f9ffea;*/
+  background-color: #f9ffea;
 }
 
 .couleur-primaire{
@@ -56,12 +56,12 @@ body {
 
     /*Images*/    
 .image-centree{
-	border-color: #f1fbd7;
+	border-color: #f9ffea;
 	box-shadow: 1px 1px 2px #B1C37F;
 }
 
 .miniature{
-	border-color: #f1fbd7;
+	border-color: #f9ffea;
 	box-shadow: 1px 1px 2px #B1C37F;
 }
 
@@ -85,6 +85,7 @@ body {
 	background-color: #DDFB8B;
 	box-shadow: 5px 10px 20px #B1C37F;
 }
+
 
 /*Fin couleurs*/
 

@@ -52,25 +52,23 @@
     
 	    <div id="header"></div>
 	
-            <div id="main" class="large-container">
-                    <div class = "element-important">
-                          <p class = "titre texte-telephone"> Score </p>
-                    </div>
-                    <div>
-                        <p id= "rang" class = "texte-normal">Rang : <span id="rang"></span></p>
-                        <!--TODO : Rajouter l'icone de rang-->
-                        <p id = "score" class = "texte-normal texte-centre"> <span id = "points"></span> points </p>
-                    </div>
-                    <div class = "element-secondaire petit-padding">
-                        <p class = "texte-normal no-margin"> Ta dernière découverte : </p>
-                        <p id ="nom-derniere-espece" class = "texte-italique texte-centre no-margin"> Bouquetin à poil bleu</p>
-                        <img src = "pandaroux.jpg" id = "image-derniere-espece" class = "image-centree"\>
-                    </div>
-                    <div>
-                        <div class = "element-important marge-haute">
-                            <p class = "texte-normal texte-centre">Continue comme ça !</p>
-                        </div>
-                    </div>
+            <div id="first" class="conteneur-principal rounded">
+				<div>
+					<p class = "sous-titre texte-conteneur-principal">
+					Alors, <span id="rang"></span>, où en es-tu ? 
+					</p>
+					<!--TODO : Rajouter l'icone de rang-->
+					<p id = "score" class = "texte-normal texte-centre texte-conteneur-principal"> <span id = "points"></span> points </p>
+				</div>
+				<div class = "ssmarge-haute">
+					<p class = "texte-normal texte-centre texte-conteneur-principal">Continue comme ça !</p>
+				</div>
+			</div>
+			<div id="last" class = "conteneur-principal rounded">
+				<p class = "sous-titre texte-conteneur-principal"> Ta dernière découverte : </p>
+				<p id ="nom-derniere-espece" class = "texte-italique texte-centre texte-conteneur-principal no-margin"> Bouquetin à poil bleu</p>
+				<img src = "pandaroux.jpg" id = "image-derniere-espece" class = "image-centree"\>
+			</div>
                     
 		<div id="footer"></div>
 		<script>
