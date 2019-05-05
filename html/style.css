@@ -86,7 +86,7 @@ img {
 
 /*Baniere*/
 .banniere {
-	max-height:50px;
+	max-width:70%;
 }
 
 /*Icones*/
@@ -138,13 +138,13 @@ img {
 /*Reste de la page*/
 #main {
 	margin-bottom:5.9em;
-	margin-top:4.9em;
+	margin-top:5.9em;
 	z-index: 1;
 }
 
 #first {
 	margin-bottom:0.5em;
-	margin-top:4.9em;
+	margin-top:5.9em;
 	z-index: 1;
 }
 
