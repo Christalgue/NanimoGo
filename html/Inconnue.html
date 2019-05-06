@@ -38,7 +38,7 @@
 			</div>
 			
 			<div class="col justify-content-md-center">
-				<p class="text-center texte-conteneur-principal">
+				<p class="texte-centre texte-telephone texte-normal texte-conteneur-principal">
 					Nous ne connaissons pas cette espèce ! Peut-être t'es-tu trompé ?
 				</p>
 				<div class="row justify-content-center">
@@ -58,8 +58,8 @@
 				Password : "mdpInsa",
 				To : "nanimogo.help@gmail.com",
 				From : "noreply.nanimogo@gmail.com",
-				Subject : "Nouvelle espèce découverte",
-				Body : "Une nouvelle espèce a été découverte. Chemin : " + localStorage.getItem("chemin"),
+				Subject : "Demande d'identification",
+				Body : "Bonjour expert Akinator. \n Une espèce non répertoriée a été trouvée. \n Votre mission, si vous l'acceptez, sera de l'identifier. \n Vous pouvez commencer vos recherches à cet endroit : " localStorage.getItem("chemin") + " \n Bonne chance",
 			}).then(
 			  message => alert(message)
 			);

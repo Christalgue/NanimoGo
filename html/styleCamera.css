@@ -9,24 +9,24 @@ html, body{
     position: fixed;
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 #camera--trigger{
-    text-align: center;
     position: fixed;
     bottom: 30px;
-    left: calc(50% - 100px);
+}
+
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .taken{
-    height: 100px!important;
-    width: 100px!important;
+    max-height: 100%;
+    max-width: 100%;
     transition: all 0.5s ease-in;
-    border: solid 3px white;
-    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
-    top: 20px;
-    right: 20px;
     z-index: 2;
 }
 
@@ -34,4 +34,10 @@ html, body{
     position: fixed;
     top:1em;
     left: 1em;
+    z-index: 2;
+}
+
+.bouton-validation {
+	position: fixed;
+	bottom: 30px;
 }
