@@ -176,7 +176,7 @@ function televerserImage(dataURL) {
      
                 var downloadURL = tacheTeleversement.snapshot.downloadURL;
                 localStorage.setItem("urlImage", downloadURL);
-                firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").on('value', function(snapshot) {
+                firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
 		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : url}});
 		  			
 		  		});
@@ -189,6 +189,25 @@ function afficherImage() {
 	document.getElementById("photoPrise").src = localStorage.getItem("urlImage");
 }
 
+function remplirAlbum() {
+ 	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
+ 		var innerHTML = "<div class=\"row mb-1 mx-1\">";
+		 	for ( var i =0; i< snapshot.val().length; i++) {
+		  			
+		  		innerHTML += "<div class=\"col conteneur-carre col-sm-3\"><a href=\"Details.html\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></a></div>";
+		  	}
+		  	innerHTML += "</div>";
+		  	document.getElementById("album").innerHTML = innerHTML;
+		  			 
+		  			
+	});
+				
+}
+function afficherNbEspeces() {
+	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("NombreEspeces").once('value', function(snapshot) {
+		document.getElementById("nbEspece").innerHTML = snapshot.val();
+		})
+}
 		
 		
 

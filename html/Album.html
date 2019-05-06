@@ -25,6 +25,23 @@
 
 		<!-- Header/Footer inclusion -->
 		<script src="inclusion.js"></script>
+		
+		<script src="services.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+			<script>
+			  // Initialize Firebase
+			  var config = {
+				apiKey: "AIzaSyAmLV6mp3KyUrcRyCJteiKPpa-hSqBtSX0",
+				authDomain: "nanimogodatabase.firebaseapp.com",
+				databaseURL: "https://nanimogodatabase.firebaseio.com",
+				projectId: "nanimogodatabase",
+				storageBucket: "nanimogodatabase.appspot.com",
+				messagingSenderId: "1033236935813"
+			  };
+			  firebase.initializeApp(config);
+		</script>
 	    <title>Menu</title>
 
 
@@ -45,37 +62,14 @@
             <p class="sous-titre texte-telephone">
                  Félicitations ! 
 	          </p>
-	          <p class="texte-centre texte-telephone texte-normal" id="especes-trouvees">Tu as trouvé 25 espèces</p>
+	          <p class="texte-centre texte-telephone texte-normal" id="especes-trouvees">Tu as trouvé <span id = "nbEspece"></span> espèce(s)</p>
 
       </div>
 
-                <div class="row mb-1 mx-1">
-                  <!--Potentiellement à creer avec js
-                  TODO : ajouter les liens vers la page de details-->
-                  <div class="col conteneur-carre">
-                    <a href="Details.html">
-                      <img src="pandaroux.jpg" class="miniature w-100"/>
-                    </a>
-                  </div>
-                  <div class="col conteneur-carre">
-                    <a href="Details.html">
-                      <img src="pandaroux.jpg" class="miniature w-100"/>
-                    </a>
-                  </div>
-                  <div class="col conteneur-carre">
-                      <a href="Details.html">
-                          <img src="pandaroux.jpg" class="miniature w-100"/>
-                        </a>
-                  </div>
-                  <div class="col conteneur-carre">
-                      <a href="Details.html">
-                          <img src="pandaroux.jpg" class="miniature w-100"/>
-                      </a>
-                  </div>
-                </div>
-                <div class="row mb-1 mx-1">
-                  <!--Potentiellement à creer avec js
-                  TODO : ajouter les liens vers la page de details-->
+                <div id = "album"></div>
+                <!--<div class="row mb-1 mx-1">
+                
+    
                   <div class="col conteneur-carre">
                     <a href="Details.html">
                       <img src="pandaroux.jpg" class="miniature"/>
@@ -96,37 +90,20 @@
                           <img src="pandaroux.jpg" class="miniature"/>
                       </a>
                   </div>
-                </div>
-                <div class="row mb-1 mx-1">
-                  <!--Potentiellement à creer avec js
-                  TODO : ajouter les liens vers la page de details-->
-                  <div class="col conteneur-carre">
-                    <a href="Details.html">
-                      <img src="pandaroux.jpg" class="miniature"/>
-                    </a>
-                  </div>
-                  <div class="col conteneur-carre ">
-                    <a href="Details.html">
-                      <img src="pandaroux.jpg" class="miniature"/>
-                    </a>
-                  </div>
-                  <div class="col conteneur-carre">
-                      <a href="Details.html">
-                          <img src="pandaroux.jpg" class="miniature"/>
-                        </a>
-                  </div>
-                  <div class="col conteneur-carre">
-                      <a href="Details.html">
-                          <img src="pandaroux.jpg" class="miniature"/>
-                      </a>
-                </div>
-              </div>
+                </div>-->
+                
+             
               <div>
                   <p class="texte-normal element-important texte-telephone" id="nb-especes"> Encore 42 espèces à trouver ! </p>
               </div>
 		</div>
 
     	<div id="footer"></div>
-
+<script>
+	$( document ).ready(function() {
+		remplirAlbum();
+		afficherNbEspeces();
+	})
+</script>
     </body>
 </html>
