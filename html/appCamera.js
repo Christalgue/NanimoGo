@@ -27,11 +27,6 @@ cameraTrigger.onclick = function() {
     cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
     cameraOutput.src = cameraSensor.toDataURL("image/webp");
     cameraOutput.classList.add("taken");
-};
-
-function test() {
-    cameraOutput.src = "https://www.todaysparent.com/wp-content/uploads/2017/06/when-your-kid-becomes-a-meme-1024x576-1497986561.jpg";
-    cameraOutput.classList.add("taken");
     $(cameraOutput).toggle();
     $("#main").toggle();
 };
