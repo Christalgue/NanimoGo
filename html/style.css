@@ -41,7 +41,7 @@ img {
 .titre{
 	text-align:center;
 	font-weight: bold;
-	font-size:1.6em;
+	font-size:1.5em;
 }
 .sous-titre{
 	font-size:1.2em;
@@ -54,7 +54,7 @@ img {
 }
 .texte-italique{
 	font-style: italic;
-    font-size:1em;
+    font-size: 1em;
 }
 .texte-telephone{
 	font-family: 'Roboto', sans-serif;
@@ -87,7 +87,6 @@ img {
 /*Baniere*/
 .banniere {
 	max-width:18em;
-	border: none;
 }
 
 /*Icones*/
@@ -120,7 +119,8 @@ img {
 	bottom: 0;
 	width: 100%;
 	text-align: center;
-	height:8em;
+	height: 3.5em;
+	/*height:8em;*/
 	z-index: 1;
 }
 
@@ -131,7 +131,8 @@ img {
 	top: 0;
 	width: 100%;
 	text-align: center;
-	height: 12em;
+	height: 5em;
+	/*height: 12em;*/
 	z-index: 1;
 }
 
@@ -140,13 +141,13 @@ img {
 	margin-bottom:5.9em;
 	margin-top:5.9em;
 	z-index: 1;
-	margin-bottom: 8em;
-	margin-top: 12em;
+	/*margin-bottom: 8em;
+	margin-top: 12em;*/
 }
 
 #first {
-	margin-bottom:0.5em;
-	margin-top:5.9em;
+	margin-bottom:5.9em;
+	margin-top:1em;
 	z-index: 1;
 }
 

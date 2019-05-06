@@ -40,9 +40,9 @@ body {
 
 .conteneur-principal{
     background-color: #F2FCFD;
-	box-shadow: 1px 5px 5px #74A7B0;
+	box-shadow: 0.1em 0.5em 0.5em #74A7B0;
 	border-style: solid;
-	border-width: 0.2px 0.5px 0.5px 0.2px;
+	border-width: 0.01em 0.02em 0.02em 0.01em;
 	border-color : #74A7B0;
 }
 
@@ -66,36 +66,15 @@ body {
 	box-shadow: 1px 1px 2px #B1C37F;
 }
 
-	/*textes*/
-
-.sous-titre{
-	text-align:center;
-	font-size:4em;
-}
-.texte-normal{
-	font-size:3.5em;
-}
-.texte-centre{
-	text-align: center;
-}
-.texte-italique{
-	font-style: italic;
-	font-size:4em;
-}
-.texte-telephone{
-  font-family: 'Roboto';
-  font-weight: 100;
-}
-
     /*Bordures*/
 .bordure-cercle{  
-    box-shadow: 1px 5px 5px #4e964b;
+    box-shadow: 0.1em 0.2em 0.2em #4e964b;
 }
 
 /*Header*/
 #header{		
 	background-color: #8AF185;
-	box-shadow: 1px 5px 5px #4e964b;
+	box-shadow:  0.1em 0.5em 0.5em #4e964b;
 }
 
 /*Elements*/
