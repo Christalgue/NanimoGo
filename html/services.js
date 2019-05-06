@@ -180,6 +180,7 @@ function televerserImage(dataURL) {
 		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : url}});
 		  			
 		  		});
+                window.location.href='Question.html';
 		  });
                 
 }  
