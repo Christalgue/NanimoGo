@@ -29,5 +29,10 @@ cameraTrigger.onclick = function() {
     cameraOutput.classList.add("taken");
 };
 
+function test() {
+    cameraOutput.src = "https://www.todaysparent.com/wp-content/uploads/2017/06/when-your-kid-becomes-a-meme-1024x576-1497986561.jpg";
+    cameraOutput.classList.add("taken");
+};
+
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, true);
