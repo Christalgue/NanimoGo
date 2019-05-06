@@ -31,3 +31,8 @@ html, body{
     top:1em;
     left: 1em;
 }
+
+.bouton-validation {
+	position: fixed;
+	bottom: 30px;
+}
