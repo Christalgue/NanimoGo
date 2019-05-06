@@ -13,10 +13,14 @@ html, body{
 }
 
 #camera--trigger{
-    text-align: center;
     position: fixed;
     bottom: 30px;
-    left: calc(50% - 100px);
+}
+
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .taken{
@@ -30,6 +34,7 @@ html, body{
     position: fixed;
     top:1em;
     left: 1em;
+    z-index: 2;
 }
 
 .bouton-validation {

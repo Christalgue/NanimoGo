@@ -16,7 +16,27 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         
         <!-- jQuery JS library -->
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-storage.js"></script>
+        
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    	
+    	<script>
+    		var config = {
+				apiKey: "AIzaSyAmLV6mp3KyUrcRyCJteiKPpa-hSqBtSX0",
+				authDomain: "nanimogodatabase.firebaseapp.com",
+				databaseURL: "https://nanimogodatabase.firebaseio.com",
+				projectId: "nanimogodatabase",
+				storageBucket: "nanimogodatabase.appspot.com",
+				messagingSenderId: "1033236935813"
+			};
+        	firebase.initializeApp(config);
+        </script>
+    	
+    	<script src="services.js"></script>
+    	
+    	
 
 
 
@@ -37,13 +57,11 @@
         <video id="camera--view" autoplay playsinline></video>
 
         <!-- Camera output -->
-        <img src="//:0" alt="" id="camera--output" style="display: none;">
+        <img alt="" id="camera--output" style="display: none;">
         
-        <div class="col-2 icone-gauche">
+        <div class="icone-gauche">
 			<a href="Accueil.html"> <i class="fas fa-arrow-left fa-2x icone"></i> </a>
 		</div>
-		
-		<!-- <a href="AffichagePhoto.html"> <i id="camera--trigger" class="camera fas fa-camera fa-2x couleur-blanc bordure-cercle couleur-secondaire"></i> </a>-->
 
         <!-- Camera trigger -->
         <button id="camera--trigger" class="camera fas fa-camera fa-2x couleur-blanc bordure-cercle couleur-secondaire"></button>
@@ -54,7 +72,7 @@
 		<div class="col justify-content-center"  id ="divQuestion">
 			<div class="row justify-content-center mb-3">
 				<button id="recommencer" onclick="recommencerPhoto()" class="texte-telephone btn btn-lg couleur-terciaire active mr-3 button-yes-no-width" role="button" aria-pressed="true">Recommencer</button>
-				<button id="identifier" onclick="window.location.href='Question.html'" class="texte-telephone btn btn-lg couleur-terciaire active ml-3 button-yes-no-width" role="button" aria-pressed="true">Identifier</button>
+				<button id="identifier" onclick="dataURL=$('canvas')[0].toDataURL(); televerserImage(dataURL)" class="texte-telephone btn btn-lg couleur-terciaire active ml-3 button-yes-no-width" role="button" aria-pressed="true">Identifier</button>
 			</div>
 		</div>
 	</div>
