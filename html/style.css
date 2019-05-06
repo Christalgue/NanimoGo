@@ -87,6 +87,7 @@ img {
 /*Baniere*/
 .banniere {
 	max-width:18em;
+	border: none;
 }
 
 /*Icones*/
