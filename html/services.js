@@ -5,7 +5,8 @@ var photo;
 var chemin = new String( 'DecisionTree' );
 var question;
 
-function miseAJourPointsRang() {
+function miseAJourPointsRangAlbum() {
+			var id = localStorage.getItem("id");
 			firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
 				var Score = snapshot.val().Score + points;
 				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Score").set(Score);
@@ -24,6 +25,12 @@ function miseAJourPointsRang() {
 						firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Rang").set(snapshot.val()[i].Nom);
 					}
 				})
+				
+			})
+			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
+				var taille = snapshot.val().length-1;
+				console.log(taille);
+				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").child(taille).child("ID").set(parseInt(id, 10));
 			})
 }
 
@@ -32,7 +39,7 @@ function ecrireInfos() {
     document.getElementById("points").innerHTML = points + " points"; 
     document.getElementById("espece").innerHTML = nom; 
     document.getElementById("anecdote").innerHTML = anecdote; 
-    miseAJourPointsRang();
+    miseAJourPointsRangAlbum();
    }
 
 function resultatInit() {
@@ -106,14 +113,83 @@ function ecrireScore() {
 	
 }
 
-function sendMail() {
-   /* var link = "mailto:lafanofdestiny@gmail.com"
-             + "&subject=" + escape("This is my subject")
-             + "&body=" + escape("chemin :"  + chemin)
-    ;
+/*function detectFiles(event) {
+	console.log("detect !");
+	console.log(event.target.files[0]);
+    this.onUploadFile(event.target.files[0]);
+ }*/
 
-    window.location.href = link;*/
-    // key api : ab296ec761eb53d09ddf0d7dc79b6f4c-us20
+/*function onUploadFile(file) {
+	uploadFile(file).then(
+	 (url) => {
+		 firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail").child("Album").on('value', function(snapshot) {
+		  		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").update({snapshot.length : {"Image" : url}});
+		  }
+		);
+	}
+}*/
+	
+/*function uploadFile(file) {
+    return new Promise(
+      (resolve, reject) => {
+        const almostUniqueFileName = Date.now().toString();
+        const upload = firebase.storage().ref()
+          .child('images/' + almostUniqueFileName + file.name).put(file);
+        upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
+          () => {
+            console.log('Chargement…');
+          },
+          (error) => {
+            console.log('Erreur de chargement ! : ' + error);
+            reject();
+          },
+          () => {
+            resolve(firebase.storage().ref()
+              .child('images/' + almostUniqueFileName + file.name).getDownloadURL());
+              
+          }
+        );
+      }
+    );
+  }*/
+  
+function televerserImage(dataURL) {
+		const nomUnique = Date.now().toString();
+		tacheTeleversement = firebase.storage().ref('/images').child(nomUnique).putString(dataURL, 'data_url', {contentType:'image/png'});  
+        tacheTeleversement.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
+        function(snapshot) {
+        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                        case firebase.storage.TaskState.PAUSED: // or 'paused'
+                        console.log('Upload is paused');
+                        break;
+                case firebase.storage.TaskState.RUNNING: // or 'running'
+                        console.log('Upload is running');
+                        break;
+                }
+        }, function(error) {
+       
+                console.log(error);
+        }, function() {
+     
+                var downloadURL = tacheTeleversement.snapshot.downloadURL;
+                localStorage.setItem("urlImage", downloadURL);
+                firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").on('value', function(snapshot) {
+		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : url}});
+		  			
+		  		});
+		  });
+                
+}  
+
+function afficherImage() {
+	document.getElementById("photoPrise").src = localStorage.getItem("urlImage");
 }
+
+		
+		
+
 
 
