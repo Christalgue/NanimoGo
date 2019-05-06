@@ -42,12 +42,15 @@ img {
 	text-align:center;
 	font-weight: bold;
 	font-size:1.5em;
+	font-family: 'Roboto', sans-serif;
 }
 .sous-titre{
 	font-size:1.2em;
+	font-family: 'Roboto', sans-serif;
 }
 .texte-normal{
 	font-size:0.8em;
+	font-family: 'Roboto', sans-serif;
 }
 .texte-centre{
 	text-align: center;
@@ -55,9 +58,6 @@ img {
 .texte-italique{
 	font-style: italic;
     font-size: 1em;
-}
-.texte-telephone{
-	font-family: 'Roboto', sans-serif;
 }
 /*Borders*/
 .element-important{
