@@ -47,7 +47,7 @@ body {
 
 	/*Textes*/
 .texte-conteneur-principal{	
-	color : #457178;
+	color: #457178;
 }
 
 .texte-boutton{
@@ -86,6 +86,44 @@ body {
 	box-shadow: 5px 10px 20px #B1C37F;
 }
 
+/*Modales*/
+.modale-interruption {
+    background: #f9ffea;
+}
+
+.ui-dialog-titlebar {
+    background: #f7fc8b;
+    box-shadow: 1px 2px 3px #f7fc8b;
+    border: none;
+}
+
+.ui-dialog-buttonpane {
+    background: #f9ffea;
+}
+
+.ui-dialog-buttonset {
+    max-width: 100%;
+}
+
+.ui-button{
+    background: #f7fc8b;
+    border: none;
+}
+
+.ui-button:hover{
+    background: #f7fc8b;
+    border: none;
+}
+
+.ui-button:focus {
+    background: #f7fc8b;
+    border: none;
+}
+.ui-corner-all{
+}
+
+.ui-widget{
+}
 
 /*Fin couleurs*/
 

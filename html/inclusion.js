@@ -10,19 +10,26 @@ $(document).ready($(function(){
 	{
 	  $( "#footer a" ).click( function (link){
 		$( "<p title='Confirmation'>Voulez-vous vraiment quitter l'identification ?</p>" ).dialog({
-		  resizable: false,
-		  height: "auto",
-		  width: 400,
-		  modal: true,
-		  buttons: {
-			"Oui": function() {
-			  $( this ).dialog( "close" );
-			  document.location = link.currentTarget.href;
-			},
-			"Non": function() {
-			  $( this ).dialog( "close" );
-			}
-		  }
+		    dialogClass: "modale-interruption",
+		    resizable: false,
+		    height: "auto",
+		    width: 400,
+		    modal: true,
+		    buttons: [
+		            {
+			            text : "Oui",
+			            click : function()  {
+			                                    $( this ).dialog( "close" );
+			                                    document.location = link.currentTarget.href;
+			                                }
+			        },
+			        {
+			            text :"Non",
+			            click: function()   {
+                                                $( this ).dialog( "close" );
+		                                    }
+                    }
+		    ]
 		});
     	return false;
 	  });
