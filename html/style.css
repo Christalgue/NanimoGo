@@ -28,6 +28,7 @@
 #badge{
 	height: 100%;
 	width: 100%;
+	border-radius: 100%;
 }
 
 /*Textes*/
@@ -201,9 +202,10 @@
 .marge-haute{
 	margin-top: 2em;
 }
+
 .grand-margin{
-	margin-left: 9.6em;
-	margin-right: 9.6em;
+	margin-left: 9em;
+	margin-right: 9em;
 }
 
 .bordure-cercle{
@@ -288,11 +290,14 @@ padding-right:1px;
 .conteneur-points-badge{
 	display: flex;
 	flex-direction: row;
+	align-content: center;
+	align-items: baseline;
 	justify-content: space-between;/*test*/
 }
 .conteneur-badge{
 	width:15em;
 	height: 15em;
+	padding-left:5em;
 }
 .image-centree{
 	border-style: groove;
