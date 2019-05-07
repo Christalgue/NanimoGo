@@ -179,8 +179,8 @@ function televerserImage(dataURL) {
                 firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
                 	var index = snapshot.val().length;
 		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({index: {"Image": downloadURL}});
+		        	window.location.href='Question.html';
 		  		});
-	        	window.location.href='Question.html';
 
 			});
 
