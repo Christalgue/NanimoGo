@@ -4,12 +4,14 @@ var points;
 var photo;
 var chemin = "DecisionTree";
 var question;
+var nbEspece;
 
 function miseAJourPointsRangAlbum() {
 			var id = localStorage.getItem("id");
 			firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
 				var Score = snapshot.val().Score + points;
 				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Score").set(Score);
+				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspeces").set((snapshot.val().NombreEspeces+1));
 				firebase.database().ref("ListeRangs").once('value', function(snapshot) {
 					var trouve = 0;
 					var i =0;
@@ -172,26 +174,26 @@ function televerserImage(dataURL) {
                 var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 console.log('Upload is ' + progress + '% done');
                 switch (snapshot.state) {
-                        case firebase.storage.TaskState.PAUSED: // or 'paused'
+                    case firebase.storage.TaskState.PAUSED: // or 'paused'
                         console.log('Upload is paused');
                         break;
-                case firebase.storage.TaskState.RUNNING: // or 'running'
+                	case firebase.storage.TaskState.RUNNING: // or 'running'
                         console.log('Upload is running');
                         break;
                 }
         }, function(error) {
                 alert("error : " + error);
         }, function() {
-     
-                var downloadURL = tacheTeleversement.snapshot.downloadURL;
+			tacheTeleversement.snapshot.ref.getDownloadURL().then(function(downloadURL) {
                 localStorage.setItem("urlImage", downloadURL);
-                alert("url : " + tacheTeleversement.snapshot.downloadURL);
-                alert("done ! url : " + localStorage.getItem("urlImage"));
                 firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
-		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : downloadURL}});
-		  			
+                	var index = snapshot.val().length;
+		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({index: {"Image": downloadURL}});
+		        	window.location.href='Question.html';
 		  		});
-                window.location.href='Question.html';
+
+			});
+
 		  });
                 
 }  
@@ -203,13 +205,20 @@ function afficherImage() {
 
 function remplirAlbum() {
  	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
- 		var innerHTML = "<div class=\"row mb-1 mx-1\">";
-		 	for ( var i =0; i< snapshot.val().length; i++) {
-		  			
-		  		innerHTML += "<div class=\"col conteneur-carre col-sm-3\"><a href=\"Details.html\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></a></div>";
-		  	}
-		  	innerHTML += "</div>";
-		  	document.getElementById("album").innerHTML = innerHTML;
+ 		var innerHTML = " ";
+ 		var i = 0;
+		for (i; i< snapshot.val().length; i++) {
+			if (i%4 == 0) {
+				innerHTML+= "<div class=\"row mb-1 mx-1\">";
+			}
+		
+			 innerHTML += "<div class=\"col conteneur-carre col-sm-3\"><a href=\"Details.html\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></a></div>";
+			 if (i%4 == 3) { 
+			  innerHTML += "</div>";
+			 }
+			
+		 }
+		  document.getElementById("album").innerHTML = innerHTML;
 		  			 
 		  			
 	});
@@ -218,8 +227,18 @@ function remplirAlbum() {
 function afficherNbEspeces() {
 	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("NombreEspeces").once('value', function(snapshot) {
 		document.getElementById("nbEspece").innerHTML = snapshot.val();
+		nbEspece =  snapshot.val();
+		firebase.database().ref("ListeAnimaux").once('value', function(snapshot) {
+			var nbEspeceRestant = snapshot.val().length - 1 - nbEspece;
+			document.getElementById("nbEspeceRestant").innerHTML = nbEspeceRestant;
+		
 		})
+		
+	})
 }
+
+
+
 		
 		
 
