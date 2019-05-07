@@ -12,13 +12,12 @@ function miseAJourPointsRangAlbum() {
 	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
 		var Score = snapshot.val().Score + points;
 		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Score").set(Score);
-		if (points == 0) {
+		if (points == 0 && id == "0") {
 			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspecesInconnus").set((snapshot.val().NombreEspecesInconnus+1));
-		} else {
+		} else if (points !=0) {
 			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspeces").set((snapshot.val().NombreEspeces+1));
-		}
-		
-		
+		} 
+				
 		firebase.database().ref("ListeRangs").once('value', function(snapshot) {
 			var trouve = 0;
 			var i =0;
@@ -37,16 +36,31 @@ function miseAJourPointsRangAlbum() {
 	})
 	firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
 		var taille = snapshot.val().length;
-		console.log(taille);
-		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").update({[taille]: {"Image": localStorage.getItem("urlImage")}});
-		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").child(taille).child("ID").set(parseInt(id, 10));
-		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").child(taille).child("Date").set(new Date().toLocaleDateString("fr-FR", { weekday: "long", year: "numeric", month: "short",  day: "numeric" }));
+		var trouve = 0;
+		if (points == 0 && id != "0") {
+			for (var i = 0; i<snapshot.val().length; i++)  {
+				if (snapshot.val()[i].ID == parseInt(id,10)) {
+								 firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").child(i).child("Image").set(localStorage.getItem("urlImage"));
+			
+				}
+			}					
+			
+		} else {
+		
+			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").update({[taille]: {"Image": localStorage.getItem("urlImage")}});
+			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").child(taille).child("ID").set(parseInt(id, 10));
+			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").child(taille).child("Date").set(new Date().toLocaleDateString("fr-FR", { weekday: "long", year: "numeric", month: "short",  day: "numeric" }));
+		}
 	})
 }
 
 function ecrireInfos() {
     document.getElementById("image").innerHTML = "<img class=\"image-centree\" src=\" " + photo + "\"/>"; 
-    document.getElementById("points").innerHTML = points + " points"; 
+    if (points == 0 && localStorage.getItem("id") != "0") {
+    	document.getElementById("points").innerHTML = points + " points (espèce déjà trouvée !)"; 
+    } else {
+    	document.getElementById("points").innerHTML = points + " points";
+    }
     document.getElementById("espece").innerHTML = nom; 
     document.getElementById("anecdote").innerHTML = anecdote; 
 
@@ -57,16 +71,31 @@ function resultatInit() {
 	firebase.database().ref("ListeAnimaux/"+localStorage.getItem("id")).on('value', function(snapshot) {
 		anecdote = snapshot.val().Anecdote;
 		nom  = snapshot.val().Nom;
-		points = snapshot.val().Points;
 		photo = snapshot.val().Image;
-		points = parseInt(points, 10);
-		if (points == 0) {
-			console.log("espece inconnue");
-			miseAJourPointsRangAlbum();
-		} else {
-			console.log("trouveeee");
-			ecrireInfos();
-		}
+		points = snapshot.val().Points;
+		var trouve = "non";
+		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").once('value', function (snapshot) {
+			for (var i =0; i< snapshot.val().length ; i++) {
+				if (snapshot.val()[i].ID == localStorage.getItem("id")) {
+					trouve = "oui";
+					break;
+				
+				}
+			}
+			if (trouve == "oui") {
+				points = 0;
+			} 
+			console.log("Ponts :" + points);
+			points = parseInt(points, 10);
+			console.log("Ponts2 :" + points);
+			if (localStorage.getItem("id") == "0") {
+				miseAJourPointsRangAlbum();
+			} else {
+				ecrireInfos();
+			}
+				
+		})
+		
 	});
 }
 
@@ -141,46 +170,6 @@ function ecrireScore() {
 	})
 	
 }
-
-/*function detectFiles(event) {
-	console.log("detect !");
-	console.log(event.target.files[0]);
-    this.onUploadFile(event.target.files[0]);
- }*/
-
-/*function onUploadFile(file) {
-	uploadFile(file).then(
-	 (url) => {
-		 firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail").child("Album").on('value', function(snapshot) {
-		  		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").update({snapshot.length : {"Image" : url}});
-		  }
-		);
-	}
-}*/
-	
-/*function uploadFile(file) {
-    return new Promise(
-      (resolve, reject) => {
-        const almostUniqueFileName = Date.now().toString();
-        const upload = firebase.storage().ref()
-          .child('images/' + almostUniqueFileName + file.name).put(file);
-        upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
-          () => {
-            console.log('Chargement…');
-          },
-          (error) => {
-            console.log('Erreur de chargement ! : ' + error);
-            reject();
-          },
-          () => {
-            resolve(firebase.storage().ref()
-              .child('images/' + almostUniqueFileName + file.name).getDownloadURL());
-              
-          }
-        );
-      }
-    );
-  }*/
   
 function televerserImage(dataURL) {
 		const nomUnique = Date.now().toString();
