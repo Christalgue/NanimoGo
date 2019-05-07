@@ -211,8 +211,8 @@
 }
 
 .grand-margin{
-	margin-left: 5em;
-	margin-right: 5em;
+	margin-left: 10em;
+	margin-right: 10em;
 }
 
 .bordure-cercle{
@@ -313,7 +313,7 @@ padding-right:1px;
 	
 }
 .conteneur-image{
-	min-height: 50em;
+	min-height: 60em;
 	min-width: 30em;
 	max-width: 55em;
 	max-height: 65em;
