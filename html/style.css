@@ -39,6 +39,7 @@
 .texte-normal{
 	font-size:0.8em;
 	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 }
 .texte-centre{
 	text-align: center;
