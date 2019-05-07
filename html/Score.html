@@ -53,21 +53,25 @@
 	    <div id="header"></div>
 
             <div id="first" class="conteneur-principal rounded">
-				<div>
-					<p class = "sous-titre texte-conteneur-principal">
+            <p class = "sous-titre texte-conteneur-principal">
 					Alors, <span id="rang"></span>, où en es-tu ? 
 					</p>
-					<!--TODO : Rajouter l'icone de rang-->
-					<p id = "score" class = "texte-normal texte-centre texte-conteneur-principal"> <span id = "points"></span> points </p>
-				</div>
-				<div class = "ssmarge-haute">
-					<p class = "texte-normal texte-centre texte-conteneur-principal">Continue comme ça !</p>
+				<div class="conteneur_points_badge">
+					<div class = "contenu_gauche">
+						<div>
+							<p id = "score" class = "texte-normal texte-conteneur-principal"> Score : <span id = "points"></span> points </p>
+						</div>
+						<div class = "ssmarge-haute">
+							<p class = "texte-normal texte-conteneur-principal">Continue comme ça !</p>
+						</div>
+					</div>
+				<div class = "contenu_droit"> <img id="badge"/>
 				</div>
 			</div>
 			<div id="last" class = "conteneur-principal rounded">
 				<p class = "sous-titre texte-conteneur-principal"> Ta dernière découverte : </p>
-				<p id ="nom-derniere-espece" class = "texte-italique texte-centre texte-conteneur-principal no-margin"> Bouquetin à poil bleu</p>
-				<img src = "pandaroux.jpg" id = "image-derniere-espece" class = "image-centree"\>
+				<p id ="nom-derniere-espece" class = "texte-italique texte-centre texte-conteneur-principal no-margin"></p>
+				<img id = "image-derniere-espece" class = "image-centree"\>
 			</div>
                     
 		<div id="footer"></div>
@@ -75,6 +79,8 @@
     		$( document ).ready(function() {
     			ecrireRang();
     			ecrireScore();
+    			afficherBadge();
+    			afficherDerniereDecouverte();
 			});
 		</script>
 

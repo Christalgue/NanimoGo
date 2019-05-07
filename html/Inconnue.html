@@ -34,7 +34,7 @@
     	
 		<div id="main" class="conteneur-principal rounded">
 			<div class="row justify-content-center">
-				<img src="photopandaroux.jpeg" class="image-centree">
+				<img src="photoPrise" class="image-centree">
 			</div>
 			
 			<div class="col justify-content-md-center">
@@ -51,7 +51,8 @@
     	<div id="footer"></div>
     	<script>
     	$( document ).ready(function() {
-
+    		afficherImage();
+			resultatInit();
 			Email.send({
 				Host : "smtp.insa-lyon.fr",
 				Username : "userInsa",

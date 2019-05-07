@@ -46,11 +46,16 @@ function ecrireInfos() {
 
 function resultatInit() {
 	firebase.database().ref("ListeAnimaux/"+localStorage.getItem("id")).on('value', function(snapshot) {
-	anecdote = snapshot.val().Anecdote;
-	nom  = snapshot.val().Nom;
-	points = snapshot.val().Points;
-	photo = snapshot.val().Image;
-	ecrireInfos();
+		anecdote = snapshot.val().Anecdote;
+		nom  = snapshot.val().Nom;
+		points = snapshot.val().Points;
+		photo = snapshot.val().Image;
+		if (points == 0) {
+			console.log("espece inconnue");
+			miseAJourPointsRangAlbum();
+		} else {
+			ecrireInfos();
+		}
 	});
 }
 
@@ -65,13 +70,14 @@ function getInformations() {
 		firebase.database().ref(chemin).on('value', function(snapshot) {
 			if (!snapshot.val().Question)
 			{	
+				localStorage.setItem("id", snapshot.val().ID);
 				if (snapshot.val().ID === 0) {
 					document.location.href = "Inconnue.html";
 					sendMail();
 					//localStorage.setItem("chemin", chemin);
 					
 				} else {	
-					localStorage.setItem("id", snapshot.val().ID);
+				
 					document.location.href = "Comparaison.html";	
 				}	
 			} else {
@@ -235,6 +241,35 @@ function afficherNbEspeces() {
 		})
 		
 	})
+}
+
+function afficherBadge() {
+	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Rang").once('value', function(snapshot) {
+		var rang = snapshot.val();
+		console.log("rang ! " + rang);
+		firebase.database().ref("ListeRangs").once('value', function(snapshot) {
+			for (var i =0; i<snapshot.val().length; i++) {
+			console.log("rang : "+ rang + ", tableau : " + snapshot.val()[i].Nom);
+				if (snapshot.val()[i].Nom == rang) {
+					console.log("trouve");
+					document.getElementById("badge").src = snapshot.val()[i].Badge;
+					break;
+				}
+			}
+	
+		})
+	})
+}
+
+function afficherDerniereDecouverte() {
+	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
+		document.getElementById("image-derniere-espece").src = snapshot.val()[(snapshot.val().length-1)].Image;
+		var id = snapshot.val()[(snapshot.val().length-1)].ID;
+		firebase.database().ref("ListeAnimaux").once('value', function(snapshot) {
+			document.getElementById("nom-derniere-espece").innerHTML = snapshot.val()[id].Nom;
+		})
+	})
+		
 }
 
 
