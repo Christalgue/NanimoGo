@@ -47,16 +47,16 @@
 	<body>
 
 		<main id="camera">
-		    <canvas id="camera--sensor"></canvas>
-		    <video id="camera--view" autoplay playsinline></video>
-		    <img alt="" id="camera--output" style="display: none;">
+		    <canvas id="capteur-camera"></canvas>
+		    <video id="vue-camera" autoplay playsinline></video>
+		    <img alt="" id="sortie-camera" style="display: none;">
 		    <div class="icone-gauche">
 				<a href="Accueil.html"> <i class="fas fa-arrow-left fa-2x icone"></i> </a>
 			</div>
-		    <button id="camera--trigger" class="camera fas fa-camera fa-2x couleur-blanc bordure-cercle couleur-secondaire"></button>
+		    <button id="declencheur-camera" class="camera fas fa-camera fa-2x couleur-blanc bordure-cercle couleur-secondaire"></button>
 		</main>
 		<div id="main" class="container justify-content-center p-0" style="display: none">
-			<div class="justify-content-center"  id ="divQuestion">
+			<div id ="divQuestion" class="justify-content-center w-100 d-flex">
 				<div class="row justify-content-center mb-3 bouton-validation">
 					<button id="recommencer" onclick="recommencerPhoto()" class="texte-telephone btn btn-lg couleur-terciaire active mr-3" role="button" aria-pressed="true">Recommencer</button>
 					<button id="identifier" onclick="dataURL=$('canvas')[0].toDataURL(); televerserImage(dataURL)" class="texte-telephone btn btn-lg couleur-terciaire active ml-3" role="button" aria-pressed="true">Identifier</button>
@@ -66,7 +66,7 @@
 
 
 		<!-- Import javascript-->
-		<script src="../javascript/appCamera.js"></script>
+		<script src="../javascript/servicesCamera.js"></script>
 
 	</body>
 </html>

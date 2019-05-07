@@ -5,14 +5,14 @@ html, body{
   width: 100%;
 }
 
-#camera, #camera--view, #camera--sensor, #camera--output{
+#camera, #vue-camera, #capteur-camera, #sortie-camera{
     position: fixed;
     height: 100%;
     width: 100%;
     object-fit: fill;
 }
 
-#camera--trigger{
+#declencheur-camera{
     position: fixed;
     bottom: 30px;
 }
@@ -23,7 +23,7 @@ main {
 	justify-content: center;
 }
 
-.taken{
+.photo-prise{
     max-height: 100%;
     max-width: 100%;
     transition: all 0.5s ease-in;
@@ -40,4 +40,8 @@ main {
 .bouton-validation {
 	position: fixed;
 	bottom: 30px;
+}
+
+#main {
+	position: relative;
 }
