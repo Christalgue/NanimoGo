@@ -47,13 +47,13 @@
 	<body>
 
 		<main id="camera">
-		    <canvas id="camera--sensor"></canvas>
-		    <video id="camera--view" autoplay playsinline></video>
-		    <img alt="" id="camera--output" style="display: none;">
+		    <canvas id="capteur-camera"></canvas>
+		    <video id="vue-camera" autoplay playsinline></video>
+		    <img alt="" id="sortie-camera" style="display: none;">
 		    <div class="icone-gauche">
 				<a href="Accueil.html"> <i class="fas fa-arrow-left fa-2x icone"></i> </a>
 			</div>
-		    <button id="camera--trigger" class="camera fas fa-camera fa-2x couleur-blanc bordure-cercle couleur-secondaire"></button>
+		    <button id="declencheur-camera" class="camera fas fa-camera fa-2x couleur-blanc bordure-cercle couleur-secondaire"></button>
 		</main>
 		<div id="main" class="container justify-content-center p-0" style="display: none">
 			<div class="justify-content-center"  id ="divQuestion">
@@ -66,7 +66,7 @@
 
 
 		<!-- Import javascript-->
-		<script src="../javascript/appCamera.js"></script>
+		<script src="../javascript/servicesCamera.js"></script>
 
 	</body>
 </html>
