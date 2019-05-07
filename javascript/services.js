@@ -252,7 +252,7 @@ function obtenirDetails() {
 	firebase.database().ref("ListeAnimaux/"+localStorage.getItem("IDAnimal")).on('value', function(snapshot) {
 		document.getElementById("nom-espece").innerHTML = snapshot.val().Nom; 
 		document.getElementById("image-espece").innerHTML = "<img class=\"image-centree\" src=\" " + snapshot.val().Image + "\"/>"; 
-		document.getElementById("anecdote").innerHTML = "Anecdote : " + snapshot.val().Anecdote;
+		document.getElementById("anecdote").innerHTML = snapshot.val().Anecdote;
 		document.getElementById("datePrise").innerHTML = localStorage.getItem("date");
 	});
 	
