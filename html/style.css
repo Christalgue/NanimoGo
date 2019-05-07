@@ -28,7 +28,7 @@
 #badge{
 	height: 100%;
 	width: 100%;
-	border-radius: 100%;
+	/*border-radius: 100%;*/
 }
 
 /*Textes*/
@@ -203,8 +203,8 @@
 	margin-top: 2em;
 }
 .grand-margin{
-	margin-left: 9.6em;
-	margin-right: 9.6em;
+	margin-left: 9.5em;
+	margin-right: 9.5em;
 }
 
 .bordure-cercle{
