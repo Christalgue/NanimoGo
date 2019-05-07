@@ -1,25 +1,13 @@
 
-/*Conteneurs*/
-.conteneur-principal{
-    margin-right : 0.5em;
-    margin-left : 0.5em;
-	padding : 1em;
-}
-
-.conteneur-carre {
-	padding-left: 1px;
-	padding-right:1px;
-}
-
-
 /*Images*/
-img {
+
+/*img {
 	max-height: 80%;
 	max-width: 80%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-}
+}*/
 
 .image-centree{
 	border-style: groove;
@@ -41,11 +29,11 @@ img {
 .titre{
 	text-align:center;
 	font-weight: bold;
-	font-size:1.5em;
+	font-size:1.4em;
 	font-family: 'Roboto', sans-serif;
 }
 .sous-titre{
-	font-size:1.2em;
+	font-size:1em;
 	font-family: 'Roboto', sans-serif;
 }
 .texte-normal{
@@ -85,9 +73,11 @@ img {
 }
 
 /*Baniere*/
-.banniere {
-	max-width:18em;
-}
+/*.banniere {
+	min-width: 60%;
+	min-height: 60%
+	max-width:90%;
+}*/
 
 /*Icones*/
 .icone-gauche {
@@ -119,9 +109,8 @@ img {
 	bottom: 0;
 	width: 100%;
 	text-align: center;
-	height: 3.5em;
-	/*height:8em;*/
-	z-index: 1;
+	height:8em;
+	z-index: 2;
 }
 
 /*Header*/
@@ -130,19 +119,24 @@ img {
 	left: 0;
 	top: 0;
 	width: 100%;
+	/*color: white;*/
 	text-align: center;
-	height: 5em;
-	/*height: 12em;*/
-	z-index: 1;
+	height: 14em;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
 }
 
 /*Reste de la page*/
 #main {
-	margin-bottom:5.9em;
-	margin-top:5.9em;
+	position: absolute;
+	padding-top:14em;
+	padding-bottom: 14em;
+	height: 100%;
+	width: 100%;
+	overflow-y: auto;
 	z-index: 1;
-	/*margin-bottom: 8em;
-	margin-top: 12em;*/
 }
 
 #first {
@@ -157,9 +151,14 @@ img {
 	z-index: 1;
 }
 
+.camera {
+	position: relative;
+	bottom : 0.6em;
+}
+
 /*Boutons*/
 .button-yes-no-width {
-	width: 68px;
+	width: 3em;
 	font-family: 'Roboto', sans-serif !important;
 	font-weight: 400 !important;
 	box-shadow: 0.3em 0.3em 0.5em #60B3C3;
@@ -169,6 +168,134 @@ img {
 	margin: 0.5em;
 }
 
+.icone-droite {
+  padding-left: 0px;
+  padding-right: 30px;
+  padding-bottom: 18px;
+}
+/*Un peu sale mais on fait avec les moyens du bord*/
+.remplissage{
+	margin-top:5em;
+	margin-bottom:5em;
+}
+
+
+.no-margin{
+	margin: 0px 0px 0px 0px;
+}
+
+.petit-margin{
+	margin: 2em 2em 2em 2em;
+}
+
+.petit-padding{
+	padding: 1.5em 1.5em 1.5em 1.5em;
+}
+
+.marge-haute{
+	margin-top: 2em;
+}
+.grand-margin{
+	margin-left: 9.6em;
+	margin-right: 9.6em;
+}
+
+.bordure-cercle{
+	border: 3px solid white;
+	border-radius: 50%;
+  padding: 17px;
+  box-shadow: 1px 5px 5px #4e964b;
+}
+/*Conteneurs*/
+.conteneur-principal{
+	margin-right : 2em;
+	margin-left : 2em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 5em;
+	padding-top: 5em;
+	padding-left: 1em;
+	padding-right:1em;
+}
+
+
+.conteneur-carre {
+padding-left: 1px;
+padding-right:1px;
+}
+
+.contenu-colonne-centre{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 4em;
+	margin-top: 4em;
+	/*overflow: scroll;
+	flex-basis: auto;*/
+}
+.banniere {
+	min-height: 15em;
+	max-height:15em;
+	padding-bottom: 2em; /*Pour donner l'illusion que l'image est centree*/
+}
+
+
+.camera{
+	font-size: 5em;
+}
+.icone{
+	font-size: 4em;
+}
+
+/*textes*/
+
+.sous-titre{
+	text-align:center;
+	font-size:4em;
+}
+.texte-normal{
+	font-size:3.5em;
+}
+.texte-centre{
+	text-align: center;
+}
+.texte-italique{
+	font-style: italic;
+	font-size:3.5em;
+}
+.texte-telephone{
+  font-family: 'Roboto';
+  font-weight: 300;
+}
+
+/*Conteneurs*/
+.miniature {
+	border-style: groove;
+	border-width: thick;
+	max-width: 100%;
+	max-height: 100%;
+	border-radius: 5%;
+}
+
+.image-centree{
+	border-style: groove;
+	border-width: thick;
+	border-radius : 10px 10px 10px 10px ;
+	height: 100%;
+	width: 100%;
+	
+}
+.conteneur-image{
+	min-height: 30em;
+	min-width: 30em;
+	max-width: 35em;
+	max-height: 35em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
 /*Modales*/
 .ui-dialog{
     font-family: 'Roboto', sans-serif;
