@@ -170,14 +170,15 @@ function televerserImage(dataURL) {
                         break;
                 }
         }, function(error) {
-                console.log(error);
+                alert("error : " + error);
         }, function() {
      
                 var downloadURL = tacheTeleversement.snapshot.downloadURL;
                 localStorage.setItem("urlImage", downloadURL);
-                alert("done ! url : " + localStorage.getItem("urlImage");
+                alert("url : " + tacheTeleversement.snapshot.downloadURL);
+                alert("done ! url : " + localStorage.getItem("urlImage"));
                 firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
-		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : url}});
+		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : downloadURL}});
 		  			
 		  		});
                 window.location.href='Question.html';
