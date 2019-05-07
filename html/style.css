@@ -168,7 +168,7 @@
 	width: 3em;
 	font-family: 'Roboto', sans-serif !important;
 	font-weight: 400 !important;
-	box-shadow: 0.3em 0.3em 0.5em #60B3C3;
+	box-shadow: 0.5em 0.5em 0.7em #60B3C3;
 }
 
 .retry-or-cancel-button{
@@ -184,7 +184,7 @@
 /* garder les ombres normales lors du clic sur le bouton de question */
 .button-yes-no-width:focus,.button-yes-no-width:active {
    outline: none !important;
-  box-shadow: 0.3em 0.3em 0.5em #60B3C3;
+  box-shadow: 0.5em 0.5em 0.7em #60B3C3;
 }
 
 /*Un peu sale mais on fait avec les moyens du bord*/
@@ -219,7 +219,7 @@
 	border: 3px solid white;
 	border-radius: 50%;
   padding: 17px;
-  box-shadow: 1px 5px 5px #4e964b;
+  box-shadow: 2px 7px 7px #4e964b;
 }
 /*Conteneurs*/
 .conteneur-principal{
