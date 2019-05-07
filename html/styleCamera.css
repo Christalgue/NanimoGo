@@ -41,3 +41,7 @@ main {
 	position: fixed;
 	bottom: 30px;
 }
+
+#main {
+	position: relative;
+}
