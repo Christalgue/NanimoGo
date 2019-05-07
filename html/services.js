@@ -170,7 +170,6 @@ function televerserImage(dataURL) {
                         break;
                 }
         }, function(error) {
-       
                 console.log(error);
         }, function() {
      
@@ -186,6 +185,7 @@ function televerserImage(dataURL) {
 }  
 
 function afficherImage() {
+	alert(localStorage.getItem("urlImage"));
 	document.getElementById("photoPrise").src = localStorage.getItem("urlImage");
 }
 
