@@ -289,7 +289,7 @@ padding-right:1px;
 	display: flex;
 	flex-direction: row;
 	align-content: center;
-	align-items: center;
+	align-items: baseline;
 	justify-content: space-between;/*test*/
 }
 .conteneur-badge{
