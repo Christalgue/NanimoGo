@@ -4,12 +4,14 @@ var points;
 var photo;
 var chemin = new String( 'DecisionTree' );
 var question;
+var nbEspece;
 
 function miseAJourPointsRangAlbum() {
 			var id = localStorage.getItem("id");
 			firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
 				var Score = snapshot.val().Score + points;
 				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Score").set(Score);
+				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspeces").set((snapshot.val().NombreEspeces+1));
 				firebase.database().ref("ListeRangs").once('value', function(snapshot) {
 					var trouve = 0;
 					var i =0;
@@ -193,13 +195,20 @@ function afficherImage() {
 
 function remplirAlbum() {
  	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
- 		var innerHTML = "<div class=\"row mb-1 mx-1\">";
-		 	for ( var i =0; i< snapshot.val().length; i++) {
-		  			
-		  		innerHTML += "<div class=\"col conteneur-carre col-sm-3\"><a href=\"Details.html\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></a></div>";
-		  	}
-		  	innerHTML += "</div>";
-		  	document.getElementById("album").innerHTML = innerHTML;
+ 		var innerHTML = " ";
+ 		var i = 0;
+		for (i; i< snapshot.val().length; i++) {
+			if (i%4 == 0) {
+				innerHTML+= "<div class=\"row mb-1 mx-1\">";
+			}
+		
+			 innerHTML += "<div class=\"col conteneur-carre col-sm-3\"><a href=\"Details.html\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></a></div>";
+			 if (i%4 == 3) { 
+			  innerHTML += "</div>";
+			 }
+			
+		 }
+		  document.getElementById("album").innerHTML = innerHTML;
 		  			 
 		  			
 	});
@@ -208,8 +217,18 @@ function remplirAlbum() {
 function afficherNbEspeces() {
 	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("NombreEspeces").once('value', function(snapshot) {
 		document.getElementById("nbEspece").innerHTML = snapshot.val();
+		nbEspece =  snapshot.val();
+		firebase.database().ref("ListeAnimaux").once('value', function(snapshot) {
+			var nbEspeceRestant = snapshot.val().length - 1 - nbEspece;
+			document.getElementById("nbEspeceRestant").innerHTML = nbEspeceRestant;
+		
 		})
+		
+	})
 }
+
+
+
 		
 		
 
