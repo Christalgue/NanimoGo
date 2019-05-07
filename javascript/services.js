@@ -6,17 +6,23 @@ var chemin = "DecisionTree";
 var question;
 var nbEspece;
 
+
 function miseAJourPointsRangAlbum() {
 	var id = localStorage.getItem("id");
 	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
 		var Score = snapshot.val().Score + points;
 		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Score").set(Score);
-		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspeces").set((snapshot.val().NombreEspeces+1));
+		if (points == 0) {
+			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspecesInconnus").set((snapshot.val().NombreEspecesInconnus+1));
+		} else {
+			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspeces").set((snapshot.val().NombreEspeces+1));
+		}
+		
+		
 		firebase.database().ref("ListeRangs").once('value', function(snapshot) {
 			var trouve = 0;
 			var i =0;
 			while (!trouve && i<snapshot.val().length-1)  {
-				console.log("i : " + i);
 				if ( snapshot.val()[i].Score <= Score && Score < snapshot.val()[i+1].Score ) {
 					trouve = 1;
 					firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Rang").set(snapshot.val()[i].Nom);
@@ -30,9 +36,11 @@ function miseAJourPointsRangAlbum() {
 		
 	})
 	firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
-		var taille = snapshot.val().length-1;
+		var taille = snapshot.val().length;
 		console.log(taille);
+		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").update({[taille]: {"Image": localStorage.getItem("urlImage")}});
 		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").child(taille).child("ID").set(parseInt(id, 10));
+		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").child(taille).child("Date").set(new Date().toLocaleDateString("fr-FR", { weekday: "long", year: "numeric", month: "short",  day: "numeric" }));
 	})
 }
 
@@ -41,6 +49,7 @@ function ecrireInfos() {
     document.getElementById("points").innerHTML = points + " points"; 
     document.getElementById("espece").innerHTML = nom; 
     document.getElementById("anecdote").innerHTML = anecdote; 
+
     miseAJourPointsRangAlbum();
    }
 
@@ -194,11 +203,7 @@ function televerserImage(dataURL) {
         }, function() {
 			tacheTeleversement.snapshot.ref.getDownloadURL().then(function(downloadURL) {
                 localStorage.setItem("urlImage", downloadURL);
-                firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
-                	var index = snapshot.val().length;
-		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").update({[index]: {"Image": downloadURL}});
-		        	window.location.href='Question.html';
-		  		});
+                window.location.href='Question.html';      
 
 			});
 
@@ -220,25 +225,33 @@ function remplirAlbum() {
 				innerHTML+= "<div class=\"row mb-1 mx-1\">";
 			}
 			
+
 			IDAnimal = snapshot.val()[i].ID
 			if (IDAnimal === 0) {
-				IDAnimal += IDAnimal + "-" + nbEspeceInconnue;
+				IDAnimal += "-" + nbEspeceInconnue;
 				nbEspeceInconnue++;
 			}
-			innerHTML += "<div id=\"" + IDAnimal + "\" onclick=\"accederPageDetails(" + IDAnimal + ") \" class=\"col conteneur-carre col-sm-3\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></div>";
-			if (i%4 == 3) { 
-			  	innerHTML += "</div>";
-			}
+			
+			date = snapshot.val()[i].Date;
+			
+			 innerHTML += "<div id=\"" + IDAnimal + "\" onclick=\"datePriseVue('" + date + "'); accederPageDetails(" + IDAnimal + ") \" class=\"col conteneur-carre col-sm-3\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></div>";
+			 if (i%4 == 3) { 
+			  innerHTML += "</div>";
+			 }
+
 			
 		}
 		document.getElementById("album").innerHTML = innerHTML;
 	});			
 }
 
+function datePriseVue(date) {
+	localStorage.setItem("date", date);
+}
+
 function accederPageDetails(IDAnimal) {
-	if (IDAnimal.startsWith("0") {
+	if (new String(IDAnimal).substr(0,0)) {
 		localStorage.setItem("IDAnimal", "0");
-		localStorage.setItem("Numero", IDAnimal.substr(2));
 	} else {
 			
 		localStorage.setItem("IDAnimal", IDAnimal);
@@ -250,15 +263,19 @@ function obtenirDetails() {
 	firebase.database().ref("ListeAnimaux/"+localStorage.getItem("IDAnimal")).on('value', function(snapshot) {
 		document.getElementById("nom-espece").innerHTML = snapshot.val().Nom; 
 		document.getElementById("image-espece").innerHTML = "<img class=\"image-centree\" src=\" " + snapshot.val().Image + "\"/>"; 
-		document.getElementById("anecdote").innerHTML = "Anecdote : " + snapshot.val().Anecdote;; 
-		//document.getElementById("date-trouvaille").innerHTML = snapshot.val().Date;; 
-	})
+		document.getElementById("anecdote").innerHTML = "Anecdote : " + snapshot.val().Anecdote;
+		document.getElementById("datePrise").innerHTML = localStorage.getItem("date");
+	});
+	
+	
+	
 }
 
 function afficherNbEspeces() {
-	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("NombreEspeces").once('value', function(snapshot) {
-		document.getElementById("nbEspece").innerHTML = snapshot.val();
-		nbEspece =  snapshot.val();
+	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
+		document.getElementById("nbEspece").innerHTML = parseInt(snapshot.val().NombreEspeces,10) + parseInt(snapshot.val().NombreEspecesInconnus,10);
+		document.getElementById("nbEspeceInconnus").innerHTML = snapshot.val().NombreEspecesInconnus;
+		nbEspece =  snapshot.val().NombreEspeces;
 		firebase.database().ref("ListeAnimaux").once('value', function(snapshot) {
 			var nbEspeceRestant = snapshot.val().length - 1 - nbEspece;
 			document.getElementById("nbEspeceRestant").innerHTML = nbEspeceRestant;
