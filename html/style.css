@@ -109,6 +109,14 @@
 	bottom: 30px;
 }
 
+.icone{
+	font-size: 4em;
+}
+
+.icone-retour{
+	margin-left: 20em;
+}
+
 /*Footer*/
 #footer {
 	position: fixed;
@@ -159,11 +167,6 @@
 	z-index: 1;
 }
 
-.camera {
-	position: relative;
-	bottom : 0.6em;
-}
-
 /*Boutons*/
 .button-yes-no-width {
 	width: 3em;
@@ -176,19 +179,13 @@
 	margin: 0.5em;
 }
 
-.icone-droite {
-  padding-left: 0px;
-  padding-right: 30px;
-  padding-bottom: 18px;
-}
 
 /* garder les ombres normales lors du clic sur le bouton de question */
-.button-yes-no-width:focus,.button-yes-no-width:active {
+/*.button-yes-no-width:focus,.button-yes-no-width:active {
    outline: none !important;
   box-shadow: 0.5em 0.5em 0.7em #60B3C3;
-}
+}*/
 
-/*Un peu sale mais on fait avec les moyens du bord*/
 .remplissage{
 	margin-top:5em;
 	margin-bottom:5em;
@@ -260,9 +257,6 @@ padding-right:1px;
 
 .camera{
 	font-size: 5em;
-}
-.icone{
-	font-size: 4em;
 }
 
 /*textes*/

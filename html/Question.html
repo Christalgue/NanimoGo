@@ -51,9 +51,8 @@
     	<div id="header"></div>
     	
 		<div id="main" class="contenu-colonne-centre">
+			<i id="retourArriere" onclick="questionRetour()" class="fas fa-arrow-left icone-retour icone" style="visibility: hidden"></i>
 			<div class = "conteneur-principal rounded">
-				<i id="retourArriere" onclick="questionRetour()" class="fas fa-arrow-left fa-2x icone-retour" style="visibility: hidden"></i>
-			
 				<div class="conteneur-image">
 						<img id="photoPrise" class="image-centree"/>
 				</div>
@@ -62,8 +61,8 @@
 					<p id="question" class="texte-normal texte-centre texte-conteneur-principal petit-margin"></p>
 				</div>
 				<div class="row">
-						<button id="reponseOui" onclick="questionValidee(this)" value="1" class="texte-telephone btn btn-lg couleur-secondaire texte-boutton active mr-3 button-yes-no-width" role="button" aria-pressed="true">Oui</button>
-						<button id="reponseNon" onclick="questionValidee(this)" value="0" class="texte-telephone btn btn-lg couleur-secondaire texte-boutton active ml-3 button-yes-no-width" role="button" aria-pressed="true">Non</button>
+						<button id="reponseOui" onclick="questionValidee(this)" value="1" class="texte-telephone btn btn-lg couleur-secondaire texte-boutton active mr-3 button-yes-no-width" role="button" aria-pressed="false">Oui</button>
+						<button id="reponseNon" onclick="questionValidee(this)" value="0" class="texte-telephone btn btn-lg couleur-secondaire texte-boutton active ml-3 button-yes-no-width" role="button" aria-pressed="false">Non</button>
 				</div>
 			</div>
 		</div>
