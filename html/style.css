@@ -280,6 +280,15 @@ padding-right:1px;
 	border-radius: 5%;
 }
 
+.conteneur-points-badge{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;/*test*/
+}
+.conteneur-badge{
+	width:10em;
+	height: 10em;
+}
 .image-centree{
 	border-style: groove;
 	border-width: thick;
