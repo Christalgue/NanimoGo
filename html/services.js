@@ -170,12 +170,12 @@ function televerserImage(dataURL) {
                         break;
                 }
         }, function(error) {
-       
                 console.log(error);
         }, function() {
      
                 var downloadURL = tacheTeleversement.snapshot.downloadURL;
                 localStorage.setItem("urlImage", downloadURL);
+                alert("done ! url : " + localStorage.getItem("urlImage");
                 firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
 		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : url}});
 		  			
@@ -186,6 +186,7 @@ function televerserImage(dataURL) {
 }  
 
 function afficherImage() {
+	alert(localStorage.getItem("urlImage"));
 	document.getElementById("photoPrise").src = localStorage.getItem("urlImage");
 }
 
