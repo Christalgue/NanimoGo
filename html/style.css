@@ -180,6 +180,13 @@
   padding-right: 30px;
   padding-bottom: 18px;
 }
+
+/* garder les ombres normales lors du clic sur le bouton de question */
+.btn:focus,.btn:active {
+   outline: none !important;
+  box-shadow: 0.3em 0.3em 0.5em #60B3C3;
+}
+
 /*Un peu sale mais on fait avec les moyens du bord*/
 .remplissage{
 	margin-top:5em;
