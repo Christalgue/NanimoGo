@@ -173,11 +173,12 @@ function televerserImage(dataURL) {
                 alert("error : " + error);
         }, function() {
 			uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+			alert("URL : " + downloadURL);
                 localStorage.setItem("urlImage", downloadURL);
                 firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
-		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : downloadURL}});	  			
+		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : downloadURL}});
                 window.location.href='Question.html';
-		  		});				
+		  		});
 			});
 		  });
                 
