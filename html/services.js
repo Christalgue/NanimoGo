@@ -191,13 +191,20 @@ function afficherImage() {
 
 function remplirAlbum() {
  	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
- 		var innerHTML = "<div class=\"row mb-1 mx-1\">";
-		 	for ( var i =0; i< snapshot.val().length; i++) {
-		  			
-		  		innerHTML += "<div class=\"col conteneur-carre col-sm-3\"><a href=\"Details.html\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></a></div>";
-		  	}
-		  	innerHTML += "</div>";
-		  	document.getElementById("album").innerHTML = innerHTML;
+ 		var innerHTML = " ";
+ 		var i = 0;
+		for (i; i< snapshot.val().length; i++) {
+			if (i%4 == 0) {
+				innerHTML+= "<div class=\"row mb-1 mx-1\">";
+			}
+		
+			 innerHTML += "<div class=\"col conteneur-carre col-sm-3\"><a href=\"Details.html\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></a></div>";
+			 if (i%4 == 3) { 
+			  innerHTML += "</div>";
+			 }
+			
+		 }
+		  document.getElementById("album").innerHTML = innerHTML;
 		  			 
 		  			
 	});
