@@ -219,24 +219,29 @@ function remplirAlbum() {
  	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
  		var innerHTML = " ";
  		var i = 0;
+        var nbEspeceInconnue = 0;
 		for (i; i< snapshot.val().length; i++) {
 			if (i%4 == 0) {
 				innerHTML+= "<div class=\"row mb-1 mx-1\">";
 			}
 			
-			IDAnimal = snapshot.val()[i].ID;
+
+			IDAnimal = snapshot.val()[i].ID
+			if (IDAnimal === 0) {
+				IDAnimal += "-" + nbEspeceInconnue;
+				nbEspeceInconnue++;
+			}
+			
 			date = snapshot.val()[i].Date;
-			alert(date);
 			
 			 innerHTML += "<div id=\"" + IDAnimal + "\" onclick=\"datePriseVue('" + date + "'); accederPageDetails(" + IDAnimal + ") \" class=\"col conteneur-carre col-sm-3\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></div>";
 			 if (i%4 == 3) { 
 			  innerHTML += "</div>";
 			 }
+
 			
-		 }
-		  document.getElementById("album").innerHTML = innerHTML;
-		  			 
-		  			
+		}
+		document.getElementById("album").innerHTML = innerHTML;
 	});			
 }
 
@@ -245,8 +250,13 @@ function datePriseVue(date) {
 }
 
 function accederPageDetails(IDAnimal) {
-	localStorage.setItem("IDAnimal", IDAnimal);
-	window.location.href="Details.html"; 
+	if (new String(IDAnimal).substr(0,0)) {
+		localStorage.setItem("IDAnimal", "0");
+	} else {
+			
+		localStorage.setItem("IDAnimal", IDAnimal);
+		window.location.href="Details.html"; 
+	}
 }
 
 function obtenirDetails() {
@@ -254,10 +264,11 @@ function obtenirDetails() {
 		document.getElementById("nom-espece").innerHTML = snapshot.val().Nom; 
 		document.getElementById("image-espece").innerHTML = "<img class=\"image-centree\" src=\" " + snapshot.val().Image + "\"/>"; 
 		document.getElementById("anecdote").innerHTML = "Anecdote : " + snapshot.val().Anecdote;
+		document.getElementById("datePrise").innerHTML = localStorage.getItem("date");
 	});
 	
 	
-	document.getElementById("date-trouvaille").innerHTML = localStorage.getItem("date");
+	
 }
 
 function afficherNbEspeces() {
