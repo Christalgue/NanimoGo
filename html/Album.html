@@ -40,8 +40,6 @@
 			};
 			firebase.initializeApp(config);
 		</script>
-    	
-	    <title>Menu</title>
 
 
 <html>
@@ -54,22 +52,23 @@
     
     	<div id="header"></div>    	
     	
-		<div id="main" class="conteneur-principal rounded">
-				<p class="sous-titre texte-telephone texte-conteneur-principal">
-					 Félicitations ! 
-				</p>
-				<p class="texte-normal texte-centre texte-telephone texte-conteneur-principal" id="especes-trouvees">
-					Tu as trouvé <span id = "nbEspece"></span> espèces.
-				</p>
-		
-                <div id = "album">
-                </div>
-  
-              <div>
-                  <p class="texte-normal texte-centre texte-conteneur-principal" id="nb-especes"> Encore <span id="nbEspeceRestant"></span> espèce(s) à trouver ! </p>
-              </div>
-			  
-		</div>
+		<div id="main" class= "contenu-colonne-centre">
+				<div class="conteneur-principal rounded">
+					<div class="petit-margin">
+						  <p class="sous-titre texte-telephone texte-conteneur-principal">
+							  Félicitations ! 
+						  </p>
+						  <p class="texte-normal texte-centre texte-telephone texte-conteneur-principal" id="especes-trouvees">
+							  Tu as trouvé <span id = "nbEspece"></span> espèces.
+							</p>
+					</div>
+							<div class = "petit-margin">
+								<div id = "album"></div>
+							</div>
+							<div class="petit-margin">
+								<p class="texte-normal texte-centre texte-conteneur-principal" id="nb-especes"> Encore <span id="nbEspeceRestant"></span> espèce(s) à trouver ! </p>
+							</div>
+				</div>
 
     	<div id="footer"></div>
 		<script>
