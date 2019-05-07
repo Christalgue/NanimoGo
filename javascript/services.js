@@ -7,33 +7,33 @@ var question;
 var nbEspece;
 
 function miseAJourPointsRangAlbum() {
-			var id = localStorage.getItem("id");
-			firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
-				var Score = snapshot.val().Score + points;
-				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Score").set(Score);
-				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspeces").set((snapshot.val().NombreEspeces+1));
-				firebase.database().ref("ListeRangs").once('value', function(snapshot) {
-					var trouve = 0;
-					var i =0;
-					while (!trouve && i<snapshot.val().length-1)  {
-						console.log("i : " + i);
-						if ( snapshot.val()[i].Score <= Score && Score < snapshot.val()[i+1].Score ) {
-							trouve = 1;
-							firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Rang").set(snapshot.val()[i].Nom);
-						}
-						i++;
-					}
-					if (!trouve &&  i===snapshot.val().length-1 && snapshot.val()[i].Score <= Score) {
-						firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Rang").set(snapshot.val()[i].Nom);
-					}
-				})
-				
-			})
-			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
-				var taille = snapshot.val().length-1;
-				console.log(taille);
-				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").child(taille).child("ID").set(parseInt(id, 10));
-			})
+	var id = localStorage.getItem("id");
+	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
+		var Score = snapshot.val().Score + points;
+		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Score").set(Score);
+		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspeces").set((snapshot.val().NombreEspeces+1));
+		firebase.database().ref("ListeRangs").once('value', function(snapshot) {
+			var trouve = 0;
+			var i =0;
+			while (!trouve && i<snapshot.val().length-1)  {
+				console.log("i : " + i);
+				if ( snapshot.val()[i].Score <= Score && Score < snapshot.val()[i+1].Score ) {
+					trouve = 1;
+					firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Rang").set(snapshot.val()[i].Nom);
+				}
+				i++;
+			}
+			if (!trouve &&  i===snapshot.val().length-1 && snapshot.val()[i].Score <= Score) {
+				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Rang").set(snapshot.val()[i].Nom);
+			}
+		})
+		
+	})
+	firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
+		var taille = snapshot.val().length-1;
+		console.log(taille);
+		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").child(taille).child("ID").set(parseInt(id, 10));
+	})
 }
 
 function ecrireInfos() {
