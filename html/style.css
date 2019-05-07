@@ -114,7 +114,8 @@
 }
 
 .icone-retour{
-	margin-right: 15em;
+	margin-right: 20em;
+	margin-bottom: 2em;
 }
 
 /*Footer*/
@@ -168,6 +169,7 @@
 }
 
 /*Boutons*/
+/*Note : l'utilisation de !important est une mauvaise pratique*/
 .button-yes-no-width {
 	width: 3em;
 	font-family: 'Roboto', sans-serif !important;
@@ -175,16 +177,17 @@
 	box-shadow: 0.5em 0.5em 0.7em #60B3C3;
 }
 
+.button-yes-no-width:focus {
+	outline: none !important;
+ box-shadow: 0.5em 0.5em 0.7em #60B3C3 ! important;
+ color: #F2FCFD!important;
+}
+
 .retry-or-cancel-button{
 	margin: 0.5em;
 }
 
 
-/* garder les ombres normales lors du clic sur le bouton de question */
-.button-yes-no-width:focus {
-   outline: none !important;
-  box-shadow: 0.5em 0.5em 0.7em #60B3C3;
-}
 
 .remplissage{
 	margin-top:5em;
