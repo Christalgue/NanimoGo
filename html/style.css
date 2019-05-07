@@ -114,7 +114,7 @@
 }
 
 .icone-retour{
-	margin-right: 10em;
+	margin-right: 15em;
 }
 
 /*Footer*/
@@ -181,10 +181,10 @@
 
 
 /* garder les ombres normales lors du clic sur le bouton de question */
-/*.button-yes-no-width:focus,.button-yes-no-width:active {
+.button-yes-no-width:focus {
    outline: none !important;
   box-shadow: 0.5em 0.5em 0.7em #60B3C3;
-}*/
+}
 
 .remplissage{
 	margin-top:5em;
