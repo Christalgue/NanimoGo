@@ -175,10 +175,10 @@ function televerserImage(dataURL) {
                 alert("error : " + error);
         }, function() {
 			tacheTeleversement.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-				alert("URL2 : " + downloadURL);
                 localStorage.setItem("urlImage", downloadURL);
                 firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
-		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : downloadURL}});
+                	var index = snapshot.val().length;
+		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({index: {"Image": downloadURL}});
 		  		});
 	        	window.location.href='Question.html';
 
