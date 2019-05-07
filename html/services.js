@@ -4,12 +4,14 @@ var points;
 var photo;
 var chemin = new String( 'DecisionTree' );
 var question;
+var nbEspece;
 
 function miseAJourPointsRangAlbum() {
 			var id = localStorage.getItem("id");
 			firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
 				var Score = snapshot.val().Score + points;
 				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Score").set(Score);
+				firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspeces").set((snapshot.val().NombreEspeces+1));
 				firebase.database().ref("ListeRangs").once('value', function(snapshot) {
 					var trouve = 0;
 					var i =0;
@@ -216,8 +218,18 @@ function remplirAlbum() {
 function afficherNbEspeces() {
 	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("NombreEspeces").once('value', function(snapshot) {
 		document.getElementById("nbEspece").innerHTML = snapshot.val();
+		nbEspece =  snapshot.val();
+		firebase.database().ref("ListeAnimaux").once('value', function(snapshot) {
+			var nbEspeceRestant = snapshot.val().length - 1 - nbEspece;
+			document.getElementById("nbEspeceRestant").innerHTML = nbEspeceRestant;
+		
 		})
+		
+	})
 }
+
+
+
 		
 		
 
