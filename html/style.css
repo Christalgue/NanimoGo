@@ -130,6 +130,7 @@
 	text-align: center;
 	height: 14em;
 	z-index: 2;
+	padding-top: 2em;
 	display: flex;
 	flex-direction: column;
 	justify-content:center;
