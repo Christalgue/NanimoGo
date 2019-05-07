@@ -315,7 +315,7 @@ padding-right:1px;
 .conteneur-image{
 	min-height: 50em;
 	min-width: 30em;
-	max-width: 55em;
+	max-width: 35em;
 	max-height: 65em;
 	display: flex;
 	flex-direction: column;
