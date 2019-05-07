@@ -174,17 +174,16 @@ function televerserImage(dataURL) {
         }, function(error) {
                 alert("error : " + error);
         }, function() {
-     			alert("tache : " + tacheTeleversement);
-     			alert("snapshot : " + tacheTeleversement.snapshot);
-                var downloadURL = tacheTeleversement.snapshot.downloadURL;
+        	alert("URL1" + uploadTask.snapshot.ref.getDownloadURL());
+			uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+				alert("URL2 : " + downloadURL);
                 localStorage.setItem("urlImage", downloadURL);
-                alert("url : " + tacheTeleversement.snapshot.downloadURL);
-                alert("done ! url : " + localStorage.getItem("urlImage"));
                 firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
 		  			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Album").set({[snapshot.val().length] : {"Image" : downloadURL}});
-		  			
 		  		});
-                window.location.href='Question.html';
+			});
+        	window.location.href='Question.html';
+
 		  });
                 
 }  
