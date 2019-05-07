@@ -262,13 +262,28 @@ function obtenirDetails() {
 
 function afficherNbEspeces() {
 	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
-		document.getElementById("nbEspece").innerHTML = parseInt(snapshot.val().NombreEspeces,10) + parseInt(snapshot.val().NombreEspecesInconnus,10);
-		document.getElementById("nbEspeceInconnus").innerHTML = snapshot.val().NombreEspecesInconnus;
+		document.getElementById("nbEspece").innerHTML = parseInt(snapshot.val().NombreEspeces,10) + parseInt(snapshot.val().NombreEspecesInconnus,10) + " espèce";
+		if ((parseInt(snapshot.val().NombreEspeces,10) + parseInt(snapshot.val().NombreEspecesInconnus,10)) > 1) {
+			document.getElementById("nbEspece").innerHTML += "s";		
+		}
+		
+		document.getElementById("nbEspeceInconnus").innerHTML = snapshot.val().NombreEspecesInconnus + " espèce";
+		if (snapshot.val().NombreEspecesInconnus > 1) {
+			document.getElementById("nbEspeceInconnus").innerHTML += "s";
+		}
+		
+		document.getElementById("nbEspeceInconnus").innerHTML += " inconnue"
+		if (snapshot.val().NombreEspecesInconnus > 1) {
+			document.getElementById("nbEspeceInconnus").innerHTML += "s";
+		}
+		
 		nbEspece =  snapshot.val().NombreEspeces;
 		firebase.database().ref("ListeAnimaux").once('value', function(snapshot) {
 			var nbEspeceRestant = snapshot.val().length - 1 - nbEspece;
-			document.getElementById("nbEspeceRestant").innerHTML = nbEspeceRestant;
-		
+			document.getElementById("nbEspeceRestant").innerHTML = nbEspeceRestant + " espèce";
+			if (nbEspeceRestant > 1) {
+				document.getElementById("nbEspeceRestant").innerHTML += "s";
+			}
 		})
 		
 	})
