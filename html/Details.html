@@ -13,6 +13,7 @@
         
         <!-- jQuery JS library -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    	<script src="services.js"></script>
     	
     	
         <link rel="stylesheet" href="style.css">
@@ -27,6 +28,23 @@
 
 		<!-- Header/Footer inclusion -->
 		<script src="inclusion.js"></script>
+		
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyAmLV6mp3KyUrcRyCJteiKPpa-hSqBtSX0",
+				authDomain: "nanimogodatabase.firebaseapp.com",
+				databaseURL: "https://nanimogodatabase.firebaseio.com",
+				projectId: "nanimogodatabase",
+				storageBucket: "nanimogodatabase.appspot.com",
+				messagingSenderId: "1033236935813"
+			};
+			firebase.initializeApp(config);
+		</script>
+		
 	    <title>Menu</title>
 
 	    <title>Details</title>
@@ -38,19 +56,29 @@
 	
             <div id="main" class="conteneur-principal rounded">
 				<div class = "">
-					  <h4 class = "sous-titre texte-telephone texte-conteneur-principal" id = "nom-espece"> <p> Limace des Sables </p>
+					  <h4 class = "sous-titre texte-telephone texte-conteneur-principal" id = "nom-espece"> 
 					  </h4>
 				</div>
 				<div id = "image-espece">
-					<img src = "pandaroux.jpg"  class = "image-centree"\>
 				</div>
 				<div class = "">
-						<p id = "Annecdote" class = "texte-telephone texte-normal texte-conteneur-principal texte-centre" >Annecdote :  La limace des sables vit dans la prairie</p>
+						<p id = "anecdote" class = "texte-telephone texte-normal texte-conteneur-principal texte-centre" ></p>
 						<p id = "date-trouvaille" class = "texte-telephone texte-normal texte-conteneur-principal texte-centre">Trouvée le : 35 février 1515</p>
 				</div>
             </div>
 
     	<div id="footer"></div>
 
+
+	<script>
+			
+		
+		$( document ).ready(function() {
+			obtenirDetails();
+		});
+			
+		   	
+		
+	</script>	
     </body>
 </html>

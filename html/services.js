@@ -211,8 +211,9 @@ function remplirAlbum() {
 			if (i%4 == 0) {
 				innerHTML+= "<div class=\"row mb-1 mx-1\">";
 			}
-		
-			 innerHTML += "<div class=\"col conteneur-carre col-sm-3\"><a href=\"Details.html\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></a></div>";
+			
+			IDAnimal = snapshot.val()[i].ID
+			 innerHTML += "<div id=\"" + IDAnimal + "\" onclick=\"accederPageDetails(" + IDAnimal + ") \" class=\"col conteneur-carre col-sm-3\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></div>";
 			 if (i%4 == 3) { 
 			  innerHTML += "</div>";
 			 }
@@ -221,9 +222,23 @@ function remplirAlbum() {
 		  document.getElementById("album").innerHTML = innerHTML;
 		  			 
 		  			
-	});
-				
+	});			
 }
+
+function accederPageDetails(IDAnimal) {
+	localStorage.setItem("IDAnimal", IDAnimal);
+	window.location.href="Details.html"; 
+}
+
+function obtenirDetails() {
+	firebase.database().ref("ListeAnimaux/"+localStorage.getItem("IDAnimal")).on('value', function(snapshot) {
+		document.getElementById("nom-espece").innerHTML = snapshot.val().Nom; 
+		document.getElementById("image-espece").innerHTML = "<img class=\"image-centree\" src=\" " + snapshot.val().Image + "\"/>"; 
+		document.getElementById("anecdote").innerHTML = "Anecdote : " + snapshot.val().Anecdote;; 
+		//document.getElementById("date-trouvaille").innerHTML = snapshot.val().Date;; 
+	})
+}
+
 function afficherNbEspeces() {
 	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("NombreEspeces").once('value', function(snapshot) {
 		document.getElementById("nbEspece").innerHTML = snapshot.val();
