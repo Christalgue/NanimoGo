@@ -43,7 +43,7 @@ body {
 
 .conteneur-principal{
     background-color: #F2FCFD;
-	box-shadow: 0.1em 0.5em 0.5em #74A7B0;
+	box-shadow: 0.1em 0.5em 1em #74A7B0;
 	border-style: solid;
 	border-width: 0.01em 0.02em 0.02em 0.01em;
 	border-color : #74A7B0;
