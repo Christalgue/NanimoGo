@@ -28,7 +28,7 @@ cameraTrigger.onclick = function() {
     cameraOutput.src = cameraSensor.toDataURL("image/webp");
     cameraOutput.classList.add("taken");
     $(cameraOutput).toggle();
-    $("#main").toggle();
+    document.getElementById("main").style.display = "flex";
 };
 
 // Start the video stream when the window loads
