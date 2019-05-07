@@ -2,46 +2,45 @@
 
 <meta charset="utf-8" />
         
-        <!-- Bootstrap CSS library -->
+        <!-- Librairie Bootstrap CSS  -->
         <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-        <!-- Fontawesome icons -->
+     	<!-- Icones -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         
-        <!-- jQuery JS library -->
+        <!-- Librairie jQuery -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    	
-    	
-        <link rel="stylesheet" href="style.css">
-    	
-    	<!-- jQuery UI for modals -->
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         
-        <!--Specific style sheet -->
-        <link rel="stylesheet" type="text/css" href="class.css">
-        <link rel="stylesheet" type="text/css" href="style.css">
+    	 <!-- Feuilles CSS -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="class.css">
+    	
 
-		<!-- Header/Footer inclusion -->
-		<script src="inclusion.js"></script>
-		
-		<script src="services.js"></script>
+		<!-- Entête - pied de page-->
+		<script src="../javascript/inclusion.js"></script>
+    	
+    	<!-- Services -->
+    	<script src="../javascript/services.js"></script>
+    	
+    	<!-- Imports Firebase -->
 		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 
-			<script>
-			  // Initialize Firebase
-			  var config = {
+		<script>
+	 		var config = {
 				apiKey: "AIzaSyAmLV6mp3KyUrcRyCJteiKPpa-hSqBtSX0",
 				authDomain: "nanimogodatabase.firebaseapp.com",
 				databaseURL: "https://nanimogodatabase.firebaseio.com",
 				projectId: "nanimogodatabase",
 				storageBucket: "nanimogodatabase.appspot.com",
 				messagingSenderId: "1033236935813"
-			  };
-			  firebase.initializeApp(config);
+			};
+			firebase.initializeApp(config);
 		</script>
+    	
 	    <title>Menu</title>
 
 
@@ -63,32 +62,9 @@
 					Tu as trouvé <span id = "nbEspece"></span> espèces.
 				</p>
 		
-                <div id = "album"></div>
-                <!--<div class="row mb-1 mx-1">
-                
-    
-                  <div class="col conteneur-carre">
-                    <a href="Details.html">
-                      <img src="pandaroux.jpg" class="miniature"/>
-                    </a>
-                  </div>
-                  <div class="col conteneur-carre ">
-                    <a href="Details.html">
-                      <img src="pandaroux.jpg" class="miniature"/>
-                    </a>
-                  </div>
-                  <div class="col conteneur-carre">
-                      <a href="Details.html">
-                          <img src="pandaroux.jpg" class="miniature"/>
-                        </a>
-                  </div>
-                  <div class="col conteneur-carre">
-                      <a href="Details.html">
-                          <img src="pandaroux.jpg" class="miniature"/>
-                      </a>
-                  </div>
-                </div>-->
-                
+                <div id = "album">
+                </div>
+  
               <div>
                   <p class="texte-normal texte-centre texte-conteneur-principal" id="nb-especes"> Encore <span id="nbEspeceRestant"></span> espèce(s) à trouver ! </p>
               </div>
@@ -96,11 +72,11 @@
 		</div>
 
     	<div id="footer"></div>
-<script>
-	$( document ).ready(function() {
-		remplirAlbum();
-		afficherNbEspeces();
-	})
-</script>
+		<script>
+			$( document ).ready(function() {
+				remplirAlbum();
+				afficherNbEspeces();
+			})
+		</script>
     </body>
 </html>
