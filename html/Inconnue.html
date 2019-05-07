@@ -23,7 +23,22 @@
 
 		<!-- Header/Footer inclusion -->
 		<script src="inclusion.js"></script>
+	<script src="services.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
 
+			<script>
+			  // Initialize Firebase
+			  var config = {
+				apiKey: "AIzaSyAmLV6mp3KyUrcRyCJteiKPpa-hSqBtSX0",
+				authDomain: "nanimogodatabase.firebaseapp.com",
+				databaseURL: "https://nanimogodatabase.firebaseio.com",
+				projectId: "nanimogodatabase",
+				storageBucket: "nanimogodatabase.appspot.com",
+				messagingSenderId: "1033236935813"
+			  };
+			  firebase.initializeApp(config);
+		</script>
         <title>Inconnue</title>
     </head>
     
@@ -34,7 +49,7 @@
     	
 		<div id="main" class="conteneur-principal rounded">
 			<div class="row justify-content-center">
-				<img src="photoPrise" class="image-centree">
+				<img id="photoPrise" class="image-centree">
 			</div>
 			
 			<div class="col justify-content-md-center">
@@ -60,10 +75,11 @@
 				To : "nanimogo.help@gmail.com",
 				From : "noreply.nanimogo@gmail.com",
 				Subject : "Demande d'identification",
-				Body : "Bonjour expert Akinator. \n Une espèce non répertoriée a été trouvée. \n Votre mission, si vous l'acceptez, sera de l'identifier. \n Vous pouvez commencer vos recherches à cet endroit : " localStorage.getItem("chemin") + " \n Bonne chance",
+				Body : "Bonjour expert Akinator. \n Une espèce non répertoriée a été trouvée. \n Votre mission, si vous l'acceptez, sera de l'identifier. \n Voici l'image : <img src ='" + localStorage.getItem("urlImage") + "' /> \n Vous pouvez commencer vos recherches à cet endroit : " + localStorage.getItem("chemin") + " \n Bonne chance !",
 			}).then(
 			  message => alert(message)
 			);
+	
 		 });
 		 </script>
     	
