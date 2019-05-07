@@ -36,6 +36,10 @@ body {
 .icone{
     color: #4e964b;
 }
+
+.icone-retour{
+	color: #80D3E3;
+}
     /*Conteneurs*/
 
 .conteneur-principal{

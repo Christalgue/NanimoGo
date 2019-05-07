@@ -2,7 +2,7 @@ var anecdote;
 var nom;
 var points;
 var photo;
-var chemin = new String( 'DecisionTree' );
+var chemin = "DecisionTree";
 var question;
 
 function miseAJourPointsRangAlbum() {
@@ -54,13 +54,12 @@ function resultatInit() {
 
 function getInformations() {
 	if (chemin === "DecisionTree") {
-		firebase.database().ref("Question").on('value', function(snapshot) {
+		firebase.database().ref(chemin).child("Question").on('value', function(snapshot) {
 		question = snapshot.val();
 		ecrireQuestion();
 					
 		});
 	} else {
-				
 		firebase.database().ref(chemin).on('value', function(snapshot) {
 			if (!snapshot.val().Question)
 			{	
@@ -81,8 +80,19 @@ function getInformations() {
 	}
 }		
 function questionValidee (bouton) {
+	if (chemin === "DecisionTree") {
+		document.getElementById("retourArriere").style.visibility = "visible";
+	}
 	var valeur = bouton.value;
 	chemin += ('/' + valeur);
+	getInformations();
+}
+
+function questionRetour () {
+	chemin = chemin.substring(0, chemin.length-2);
+	if (chemin === "DecisionTree") {
+		document.getElementById("retourArriere").style.visibility = "hidden";
+	}
 	getInformations();
 }
 		
