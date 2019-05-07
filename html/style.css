@@ -204,8 +204,8 @@
 }
 
 .grand-margin{
-	margin-left: 9em;
-	margin-right: 9em;
+	margin-left: 5em;
+	margin-right: 5em;
 }
 
 .bordure-cercle{
@@ -290,9 +290,8 @@ padding-right:1px;
 .conteneur-points-badge{
 	display: flex;
 	flex-direction: row;
-	align-content: center;
 	align-items: baseline;
-	justify-content: space-between;/*test*/
+	justify-content: center;/*test*/
 }
 .conteneur-badge{
 	width:15em;
