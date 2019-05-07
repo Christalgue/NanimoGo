@@ -114,7 +114,7 @@
 }
 
 .icone-retour{
-	margin-right: 20em;
+	margin-right: 25em;
 	margin-bottom: 2em;
 }
 
@@ -177,7 +177,7 @@
 	box-shadow: 0.5em 0.5em 0.7em #60B3C3;
 }
 
-.button-yes-no-width:focus {
+.button-yes-no-width:focus, .button-yes-no-width:active {
 	outline: none !important;
  box-shadow: 0.5em 0.5em 0.7em #60B3C3 ! important;
  color: #F2FCFD!important;
