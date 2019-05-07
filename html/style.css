@@ -80,11 +80,11 @@
 }
 
 /*Baniere*/
-/*.banniere {
+.banniere {
 	min-width: 60%;
-	min-height: 60%
+	min-height: 60%;
 	max-width:90%;
-}*/
+}
 
 /*Icones*/
 .icone-gauche {
