@@ -173,6 +173,7 @@ function televerserImage(dataURL) {
                 alert("error : " + error);
         }, function() {
      			alert("tache : " + tacheTeleversement);
+     			alert("snapshot : " + tacheTeleversement.snapshot);
                 var downloadURL = tacheTeleversement.snapshot.downloadURL;
                 localStorage.setItem("urlImage", downloadURL);
                 alert("url : " + tacheTeleversement.snapshot.downloadURL);
