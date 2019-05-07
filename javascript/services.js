@@ -214,27 +214,36 @@ function remplirAlbum() {
  	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).child("Album").once('value', function(snapshot) {
  		var innerHTML = " ";
  		var i = 0;
+        var nbEspeceInconnue = 0;
 		for (i; i< snapshot.val().length; i++) {
 			if (i%4 == 0) {
 				innerHTML+= "<div class=\"row mb-1 mx-1\">";
 			}
 			
 			IDAnimal = snapshot.val()[i].ID
-			 innerHTML += "<div id=\"" + IDAnimal + "\" onclick=\"accederPageDetails(" + IDAnimal + ") \" class=\"col conteneur-carre col-sm-3\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></div>";
-			 if (i%4 == 3) { 
-			  innerHTML += "</div>";
-			 }
+			if (IDAnimal === 0) {
+				IDAnimal += IDAnimal + "-" + nbEspeceInconnue;
+				nbEspeceInconnue++;
+			}
+			innerHTML += "<div id=\"" + IDAnimal + "\" onclick=\"accederPageDetails(" + IDAnimal + ") \" class=\"col conteneur-carre col-sm-3\"><img src=\" " + snapshot.val()[i].Image + "\"class=\"miniature w-100\"/></div>";
+			if (i%4 == 3) { 
+			  	innerHTML += "</div>";
+			}
 			
-		 }
-		  document.getElementById("album").innerHTML = innerHTML;
-		  			 
-		  			
+		}
+		document.getElementById("album").innerHTML = innerHTML;
 	});			
 }
 
 function accederPageDetails(IDAnimal) {
-	localStorage.setItem("IDAnimal", IDAnimal);
-	window.location.href="Details.html"; 
+	if (IDAnimal.startsWith("0") {
+		localStorage.setItem("IDAnimal", "0");
+		localStorage.setItem("Numero", IDAnimal.substr(2));
+	} else {
+			
+		localStorage.setItem("IDAnimal", IDAnimal);
+		window.location.href="Details.html"; 
+	}
 }
 
 function obtenirDetails() {
