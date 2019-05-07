@@ -288,6 +288,8 @@ padding-right:1px;
 .conteneur-points-badge{
 	display: flex;
 	flex-direction: row;
+	align-content: center;
+	align-items: center;
 	justify-content: space-between;/*test*/
 }
 .conteneur-badge{
