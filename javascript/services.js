@@ -13,7 +13,7 @@ function miseAJourPointsRangAlbum() {
 		var Score = snapshot.val().Score + points;
 		firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("Score").set(Score);
 		if (points == 0 && id == "0") {
-			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspecesInconnus").set((snapshot.val().NombreEspecesInconnus+1));
+			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspecesInconnues").set((snapshot.val().NombreEspecesInconnues+1));
 		} else if (points !=0) {
 			firebase.database().ref("Utilisateurs").child(localStorage.getItem("mail")).child("NombreEspeces").set((snapshot.val().NombreEspeces+1));
 		} 
@@ -262,18 +262,18 @@ function obtenirDetails() {
 
 function afficherNbEspeces() {
 	firebase.database().ref("Utilisateurs/" + localStorage.getItem("mail")).once('value', function(snapshot) {
-		document.getElementById("nbEspece").innerHTML = parseInt(snapshot.val().NombreEspeces,10) + parseInt(snapshot.val().NombreEspecesInconnus,10) + " espèce";
-		if ((parseInt(snapshot.val().NombreEspeces,10) + parseInt(snapshot.val().NombreEspecesInconnus,10)) > 1) {
+		document.getElementById("nbEspece").innerHTML = parseInt(snapshot.val().NombreEspeces,10) + parseInt(snapshot.val().NombreEspecesInconnues,10) + " espèce";
+		if ((parseInt(snapshot.val().NombreEspeces,10) + parseInt(snapshot.val().NombreEspecesInconnues,10)) > 1) {
 			document.getElementById("nbEspece").innerHTML += "s";		
 		}
 		
-		document.getElementById("nbEspeceInconnus").innerHTML = snapshot.val().NombreEspecesInconnus + " espèce";
-		if (snapshot.val().NombreEspecesInconnus > 1) {
+		document.getElementById("nbEspeceInconnus").innerHTML = snapshot.val().NombreEspecesInconnues + " espèce";
+		if (snapshot.val().NombreEspecesInconnues > 1) {
 			document.getElementById("nbEspeceInconnus").innerHTML += "s";
 		}
 		
 		document.getElementById("nbEspeceInconnus").innerHTML += " inconnue"
-		if (snapshot.val().NombreEspecesInconnus > 1) {
+		if (snapshot.val().NombreEspecesInconnues > 1) {
 			document.getElementById("nbEspeceInconnus").innerHTML += "s";
 		}
 		
