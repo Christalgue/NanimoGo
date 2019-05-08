@@ -1,6 +1,6 @@
-// inclusion du header et du footer
+// inclusion de la banniere et du footer
 $(document).ready($(function(){
-  $("#header").load("header.html"); 
+  $("#banniere").load("banniere.html"); 
   
   $("#footer").load("footer.html", function() {
 	// dans le processus d'identification, on ajoute des fenêtres modales de confimation
