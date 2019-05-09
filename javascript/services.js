@@ -113,8 +113,8 @@ function getInformations() {
 				localStorage.setItem("id", snapshot.val().ID);
 				if (snapshot.val().ID === 0) {
 					document.location.href = "Inconnue.html";
+					localStorage.setItem("chemin", chemin);
 					sendMail();
-					//localStorage.setItem("chemin", chemin);
 					
 				} else {	
 				
